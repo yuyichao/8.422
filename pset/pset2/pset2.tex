@@ -220,15 +220,110 @@ As shown in problem one.
 
 \section{}
 \subsection{}
+After the first beam splitter
+\eqar{
+  |\psi_1\rangle=&\frac{|0,1\rangle+|1,0\rangle}{\sqrt2}
+  \intertext{After the phase shift}
+  |\psi_2\rangle=&\frac{\ue^{-\ui\phi/2}|0,1\rangle+\ue^{\ui\phi/2}|1,0\rangle}{\sqrt2}
+  \intertext{After the second beam splitter}
+  |\psi_3\rangle=&\frac{\ue^{-\ui\phi/2}}{\sqrt2}\paren{\frac{|0,1\rangle-|1,0\rangle}{\sqrt2}}+\frac{\ue^{\ui\phi/2}}{\sqrt2}\paren{\frac{|0,1\rangle+|1,0\rangle}{\sqrt2}}\\
+  =&\frac{\ue^{-\ui\phi/2}}{2}\paren{|0,1\rangle-|1,0\rangle}+\frac{\ue^{\ui\phi/2}}{2}\paren{|0,1\rangle+|1,0\rangle}\\
+  =&\cos\frac{\phi}{2}|0,1\rangle+\ui\sin\frac{\phi}{2}|1,0\rangle\\
+  P_b=&\cos^2\frac{\phi}{2}\\
+  V=&\frac{\max\paren{P_b}-\min\paren{P_b}}{\max\paren{P_b}+\min\paren{P_b}}\\
+  =&\frac{1-0}{1+0}\\
+  =&1
+}
 \subsection{}
+\eqar{
+  |\psi_0\rangle=&|0, 1, 0\rangle\\
+  |\psi_1\rangle=&\frac{|0, 0, 1\rangle+|0, 1, 0\rangle}{\sqrt2}\\
+  |\psi_2\rangle=&\frac{1}{\sqrt2}\paren{\ue^{\ui\phi/2}|0, 0, 1\rangle+\ue^{-\ui\phi/2}\paren{\cos\theta|0, 1, 0\rangle+\sin\theta|1, 0, 0\rangle}}\\
+  |\psi_3\rangle=&\frac{1}{\sqrt2}\paren{
+    \ue^{\ui\phi/2}\frac{|0, 0, 1\rangle+|0, 1, 0\rangle}{\sqrt2}
+    +\cos\theta\ue^{-\ui\phi/2}\frac{|0, 1, 0\rangle-|0, 0, 1\rangle}{\sqrt2}
+    +\sin\theta\ue^{-\ui\phi/2}|1, 0, 0\rangle}\\
+  =&\frac{\paren{\ue^{\ui\phi/2}-\cos\theta\ue^{-\ui\phi/2}}|0, 0, 1\rangle-\paren{\ue^{\ui\phi/2}+\cos\theta\ue^{-\ui\phi/2}}|0, 1, 0\rangle}{2}
+  +\frac{\sin\theta\ue^{-\ui\phi/2}}{\sqrt2}|1, 0, 0\rangle\\
+  P_b=&\abs{\frac{\ue^{\ui\phi/2}+\cos\theta\ue^{-\ui\phi/2}}{2}}^2\\
+  =&\paren{\frac{1+\cos\theta}{2}\cos\frac{\phi}{2}}^2+\paren{\frac{1-\cos\theta}{2}\sin\frac{\phi}{2}}^2\\
+  =&\frac{1+\cos^2\theta}{4}+\frac{\cos\theta}{2}\cos\phi\\
+  V=&\frac{2\cos\theta}{1+\cos^2\theta}
+}
 \subsection{}
+\eqar{
+  |\psi_0\rangle=&|0, 0, 1, 0\rangle\\
+  |\psi_1\rangle=&\frac{|0, 1, 0, 0\rangle+|0, 0, 1, 0\rangle}{\sqrt2}\\
+  |\psi_2\rangle=&\frac{1}{\sqrt2}\paren{\ue^{\ui\phi/2}|0, 1, 0, 0\rangle+\ue^{-\ui\phi/2}|0, 0, 1, 0\rangle}\\
+  |\psi_3\rangle=&\frac{\ue^{\ui\phi/2}}{\sqrt2}\paren{\cos\theta|0, 1, 0, 0\rangle+\sin\theta|1, 0, 0, 0\rangle}+\frac{\ue^{-\ui\phi/2}}{\sqrt2}\paren{\cos\theta'|0, 0, 1, 0\rangle+\sin\theta'|0, 0, 0, 1\rangle}\\
+  =&\frac{\ue^{\ui\phi/2}\sin\theta}{\sqrt2}|1, 0, 0, 0\rangle
+  +\frac{\ue^{-\ui\phi/2}\sin\theta'}{\sqrt2}|0, 0, 0, 1\rangle
+  +\frac{\ue^{\ui\phi/2}\cos\theta}{\sqrt2}|0, 1, 0, 0\rangle
+  +\frac{\ue^{-\ui\phi/2}\cos\theta'}{\sqrt2}|0, 0, 1, 0\rangle\\
+  |\psi_4\rangle=&\frac{\ue^{\ui\phi/2}\sin\theta}{\sqrt2}|1, 0, 0, 0\rangle
+  +\frac{\ue^{-\ui\phi/2}\sin\theta'}{\sqrt2}|0, 0, 0, 1\rangle\\
+  &+\frac{\ue^{\ui\phi/2}\cos\theta}{2}\paren{|0, 0, 1, 0\rangle+|0, 1, 0, 0\rangle}
+  +\frac{\ue^{-\ui\phi/2}\cos\theta'}{2}\paren{|0, 0, 1, 0\rangle-|0, 1, 0, 0\rangle}\\
+  =&\frac{\ue^{\ui\phi/2}\sin\theta}{\sqrt2}|1, 0, 0, 0\rangle
+  +\frac{\ue^{-\ui\phi/2}\sin\theta'}{\sqrt2}|0, 0, 0, 1\rangle\\
+  &+\frac{\ue^{\ui\phi/2}\cos\theta+\ue^{-\ui\phi/2}\cos\theta'}{2}|0, 0, 1, 0\rangle
+  +\frac{\ue^{\ui\phi/2}\cos\theta-\ue^{-\ui\phi/2}\cos\theta'}{2}|0, 1, 0, 0\rangle
+  \intertext{Maximum and minimum probabilities}
+  \max{P_b}=&\frac14\paren{\cos\theta+\cos\theta'}^2\\
+  \min{P_b}=&\frac14\paren{\cos\theta-\cos\theta'}^2\\
+  V=&\frac{2\cos\theta\cos\theta'}{\cos^2\theta+\cos^2\theta'}
+}
+Changing to condition probability does not change the visibility.
+
 \subsection{}
+\eqar{
+  |\psi_0\rangle=&|0, 0, \alpha, 0\rangle\\
+  |\psi_1\rangle=&|0, \frac\alpha2, \frac\alpha2, 0\rangle\\
+  |\psi_2\rangle=&|0, \ue^{\ui\phi/2}\frac\alpha2, \ue^{-\ui\phi/2}\frac\alpha2, 0\rangle\\
+  |\psi_3\rangle=&|\ue^{\ui\phi/2}\sin\theta\frac\alpha2, \ue^{\ui\phi/2}\cos\theta\frac\alpha2, \ue^{-\ui\phi/2}\cos\theta'\frac\alpha2, \ue^{-\ui\phi/2}\sin\theta'\frac\alpha2\rangle\\
+  |\psi_4\rangle=&|\ue^{\ui\phi/2}\sin\theta\frac\alpha2, \ue^{\ui\phi/2}\cos\theta\frac\alpha2-\ue^{-\ui\phi/2}\cos\theta'\frac\alpha2, \ue^{\ui\phi/2}\cos\theta\frac\alpha2+\ue^{-\ui\phi/2}\cos\theta'\frac\alpha2, \ue^{-\ui\phi/2}\sin\theta'\frac\alpha2\rangle
+  \intertext{Maximum and minimum intensity}
+  \max{P_b}=&\frac{\alpha^2}4\paren{\cos\theta+\cos\theta'}^2\\
+  \min{P_b}=&\frac{\alpha^2}4\paren{\cos\theta-\cos\theta'}^2\\
+  V=&\frac{2\cos\theta\cos\theta'}{\cos^2\theta+\cos^2\theta'}
+}
 
 \section{}
 \subsection{}
+From the definition of entangled state, the state is a product state if Schmidt number is $1$. If a product state has a Schmidt number greater than $1$
+\eqar{
+  |\psi_A\rangle|\psi_B\rangle=&\sum_k\lambda_k|k_A\rangle|k_B\rangle\\
+  |\psi_A\rangle=&\sum_k\lambda_k\langle\psi_B|k_B\rangle|k_A\rangle\\
+  |\psi_B\rangle=&\sum_k\lambda_k\langle\psi_A|k_A\rangle|k_B\rangle\\
+  |\psi_A\rangle|\psi_B\rangle=&\sum_{k_1,k_2}\lambda_{k_1}\langle\psi_B|{k_1}_B\rangle|{k_1}_A\rangle\lambda_{k_2}\langle\psi_A|{k_2}_A\rangle|{k_2}_B\rangle\\
+  \neq&\sum_k\lambda_k|k_A\rangle|k_B\rangle
+}
 \subsection{}
+With the same local unitary transformation on the right hand side, it is still a valid expansion of the new state and therefore the Schmidt number does not change.
 \subsection{}
+\eqar{
+  \begin{array}{|c|c|}
+    \hline
+    \text{State}&\text{Schmidt number}\\\hline
+    \phi_1&3\\\hline
+    \phi_2&1\\\hline
+    \phi_3&2\\\hline
+    \phi_4&2\\\hline
+  \end{array}
+}
 \subsection{}
+Schmidt number is $2$.
+\eqar{
+  |\phi_1\rangle=&B|\psi\rangle\\
+  =&\frac{1}{\sqrt{n!(n-1)!}2^n}\paren{\paren{a^\dagger+b^\dagger}^{n}\paren{a^\dagger-b^\dagger}^{n-1}+\paren{a^\dagger+b^\dagger}^{n-1}\paren{a^\dagger-b^\dagger}^{n}}|0,0\rangle\\
+  =&\frac{1}{\sqrt{n!(n-1)!}2^{n-1}}\paren{a^\dagger+b^\dagger}^{n-1}a^\dagger\paren{a^\dagger-b^\dagger}^{n-1}|0,0\rangle\\
+  =&\frac{1}{\sqrt{n!(n-1)!}2^{n-1}}\paren{{a^\dagger}^2-{b^\dagger}^2}^{n-1}a^\dagger|0,0\rangle
+}
+Therefore the Schmidt number is $n-1$. This is a better measure since these are the states that interfere later.
+
+The Schmidt number for a coherent state after a beam splitter is $1$ since it is still a product state.
+
 \subsection{}
+\includegraphics[width=12cm]{4.png}
 
 \end{document}
