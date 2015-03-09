@@ -111,10 +111,61 @@ Recitation Section \psettitlersection
 \begin{document}
 \section{}
 \subsection{}
+\eqar{
+  H=&\hbar\omega b^\dagger b+\ui\hbar\Lambda\paren{{b^\dagger}^2+b^2}\\
+  \diff{b}{t}=&\frac{\ui}{\hbar}\sqr{H, b}+\pdiff{b}{t}\\
+  =&\sqr{\ui\omega b^\dagger b-\Lambda{b^\dagger}^2, b}+\ui\omega b\\
+  =&2\Lambda b^\dagger\\
+  \diff{b^\dagger}{t}=&2\Lambda b
+}
+\subsection{}
+\eqar{
+  \vec E=&\ui\mathcal{E}_\omega\vec\varepsilon\paren{b\ue^{\ui\paren{\vec k\cdot\vec r-\omega t}}-b^\dagger\ue^{-\ui\paren{\vec k\cdot\vec r-\omega t}}}\\
+  =&\ui\mathcal{E}_\omega\vec\varepsilon\paren{b\cos\paren{\vec k\cdot\vec r-\omega t}+\ui b\sin\paren{\vec k\cdot\vec r-\omega t}-b^\dagger\cos\paren{\vec k\cdot\vec r-\omega t}+\ui b^\dagger\sin\paren{\vec k\cdot\vec r-\omega t}}\\
+  =&-2\mathcal{E}_\omega\vec\varepsilon\paren{\frac{b-b^\dagger}{2\ui}\cos\paren{\vec k\cdot\vec r-\omega t}+\frac{b+b^\dagger}{2}\sin\paren{\vec k\cdot\vec r-\omega t}}\\
+  =&-2\mathcal{E}_\omega\vec\varepsilon\paren{b_Q\cos\paren{\vec k\cdot\vec r-\omega t}+b_P\sin\paren{\vec k\cdot\vec r-\omega t}}\\
+  \diff{b_{\pm}}{t}\equiv&\diff{b\pm b^\dagger}{t}\\
+  =&2\Lambda b^\dagger\pm2\Lambda b\\
+  =&\pm2\Lambda b_\pm\\
+  \diff{b_P}{t}=&2\Lambda b_P\\
+  \diff{b_Q}{t}=&-2\Lambda b_Q\\
+  \intertext{Therefore}
+  b_P=&\ue^{2\Lambda t}b_{P0}\\
+  b_Q=&\ue^{-2\Lambda t}b_{Q0}\\
+  b=&b_P+\ui b_Q\\
+  =&\ue^{2\Lambda t}b_{P0}+\ui\ue^{-2\Lambda t}b_{Q0}\\
+  =&b_0\cosh2\Lambda t+b_0^\dagger\sinh2\Lambda t\\
+  b^\dagger=&b_0^\dagger\cosh2\Lambda t+b_0\sinh2\Lambda t
+}
+\subsection{}
+\eqar{
+  \angl{N}=&\langle0|b^\dagger b|0\rangle\\
+  =&\langle0|\paren{b_0^\dagger\cosh2\Lambda t+b_0\sinh2\Lambda t}\paren{b_0\cosh2\Lambda t+b_0^\dagger\sinh2\Lambda t}|0\rangle\\
+  =&\sinh^22\Lambda t\\
+  \Delta b_P=&\ue^{2\Lambda t}\Delta b_{P0}\\
+  =&\frac12\ue^{2\Lambda t}\\
+  \Delta b_Q=&\ue^{-2\Lambda t}\Delta b_{Q0}\\
+  =&\frac12\ue^{-2\Lambda t}
+}
+The state is squeezed in $Q$ direction while the product of the uncertainty in $P$ and $Q$ remains the same.
 \subsection{}
 \subsection{}
-\subsection{}
-\subsection{}
+\subsubsection{}
+\includegraphics[width=10cm]{{1e1_0.2}.png}\\
+\includegraphics[width=10cm]{{1e1_1.2}.png}\\
+\includegraphics[width=10cm]{{1e1_4}.png}
+\subsubsection{}
+$\beta=\ui$\\
+\includegraphics[width=10cm]{{1e2_0.2}.png}\\
+\includegraphics[width=10cm]{{1e2_1.2}.png}\\
+\includegraphics[width=10cm]{{1e2_4}.png}
+\subsubsection{}
+$\beta=\ui$\\
+\includegraphics[width=10cm]{{1e3_0.2}.png}\\
+\includegraphics[width=10cm]{{1e3_1.2}.png}\\
+\includegraphics[width=10cm]{{1e3_4}.png}
+
+Weither a phase or number squeezed state is created depends on the initial state.
 
 \section{}
 \subsection{}
