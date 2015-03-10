@@ -288,6 +288,97 @@ $\varphi'=\dfrac\pi2-\varphi$
   \varphi'_{min}=&\frac{1}{\abs{\alpha}}
 }
 \subsection{}
+Average
+\eqar{
+  &b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}\\
+  =&n_a\cos\varphi-\paren{t^\dagger\cosh\varepsilon-t\sinh\varepsilon}\paren{t\cosh\varepsilon-t^\dagger\sinh\varepsilon}\cos\varphi\\
+  &+\ui\sin\varphi\paren{a\paren{t^\dagger\cosh\varepsilon-t\sinh\varepsilon}-a^\dagger\paren{t\cosh\varepsilon-t^\dagger\sinh\varepsilon}}\\
+  =&n_a\cos\varphi-\cos\varphi\paren{
+    \cosh2\varepsilon n_t+\sinh^2\varepsilon
+    -\sinh\varepsilon\cosh\varepsilon\paren{{t^\dagger}^2+t^2}}\\
+  &+\ui\sin\varphi\paren{a\paren{t^\dagger\cosh\varepsilon-t\sinh\varepsilon}-a^\dagger\paren{t\cosh\varepsilon-t^\dagger\sinh\varepsilon}}\\
+  &\angl{b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}}\\
+  =&\langle
+  n_a\cos\varphi-\cos\varphi\paren{
+    \cosh2\varepsilon n_t+\sinh^2\varepsilon
+    -\sinh\varepsilon\cosh\varepsilon\paren{{t^\dagger}^2+t^2}}\\
+  &+\ui\sin\varphi\paren{a\paren{t^\dagger\cosh\varepsilon-t\sinh\varepsilon}-a^\dagger\paren{t\cosh\varepsilon-t^\dagger\sinh\varepsilon}}
+  \rangle\\
+  =&\abs{\alpha}^2\cos\varphi-\cos\varphi\sinh^2\varepsilon
+  \intertext{Square}
+  &\angl{\paren{b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}}^2}\\
+  =&\langle
+  \left(n_a\cos\varphi-\cos\varphi\paren{
+      \cosh2\varepsilon n_t+\sinh^2\varepsilon
+      -\sinh\varepsilon\cosh\varepsilon\paren{{t^\dagger}^2+t^2}}\right.\\
+  &\left.+\ui\sin\varphi\paren{a\paren{t^\dagger\cosh\varepsilon-t\sinh\varepsilon}-a^\dagger\paren{t\cosh\varepsilon-t^\dagger\sinh\varepsilon}}\right)\\
+  &\left(n_a\cos\varphi-\cos\varphi\paren{
+      \cosh2\varepsilon n_t+\sinh^2\varepsilon
+      -\sinh\varepsilon\cosh\varepsilon\paren{{t^\dagger}^2+t^2}}\right.\\
+  &\left.+\ui\sin\varphi\paren{a\paren{t^\dagger\cosh\varepsilon-t\sinh\varepsilon}-a^\dagger\paren{t\cosh\varepsilon-t^\dagger\sinh\varepsilon}}\right)
+  \rangle\\
+  =&\langle
+  \paren{n_a\cos\varphi-\cos\varphi\paren{
+      \sinh^2\varepsilon-\sinh\varepsilon\cosh\varepsilon t^2}-\ui t\sin\varphi\paren{a\sinh\varepsilon+a^\dagger\cosh\varepsilon}}\\
+  &\paren{n_a\cos\varphi-\cos\varphi\paren{
+      \sinh^2\varepsilon-\sinh\varepsilon\cosh\varepsilon{t^\dagger}^2}
+    +\ui\sin\varphi t^\dagger\paren{a\cosh\varepsilon+a^\dagger\sinh\varepsilon}}
+  \rangle\\
+  =&\langle
+  \paren{n_a\cos\varphi-\cos\varphi\sinh^2\varepsilon
+    +\cos\varphi\sinh\varepsilon\cosh\varepsilon t^2-\ui t\sin\varphi\paren{a\sinh\varepsilon+\alpha^*\cosh\varepsilon}}\\
+  &\paren{n_a\cos\varphi-\cos\varphi\sinh^2\varepsilon
+    +\cos\varphi\sinh\varepsilon\cosh\varepsilon{t^\dagger}^2
+    +\ui t^\dagger\sin\varphi\paren{\alpha\cosh\varepsilon+a^\dagger\sinh\varepsilon}}
+  \rangle\\
+  =&\angl{\paren{n_a\cos\varphi-\cos\varphi\sinh^2\varepsilon}^2}+\langle
+  \cos^2\varphi\sinh^2\varepsilon\cosh^2\varepsilon tt^\dagger tt^\dagger
+  \rangle\\
+  &+\langle
+  \paren{\cos\varphi\sinh\varepsilon\cosh\varepsilon t-\ui\sin\varphi\paren{a\sinh\varepsilon+\alpha^*\cosh\varepsilon}}\\
+  &\paren{\cos\varphi\sinh\varepsilon\cosh\varepsilon{t^\dagger}
+    +\ui\sin\varphi\paren{\alpha\cosh\varepsilon+a^\dagger\sinh\varepsilon}}
+  \rangle\\
+  =&\angl{\paren{n_a\cos\varphi-\cos\varphi\sinh^2\varepsilon}^2}
+  +2\cos^2\varphi\sinh^2\varepsilon\cosh^2\varepsilon\\
+  &+\sin^2\varphi\abs{\alpha\sinh\varepsilon+\alpha^*\cosh\varepsilon}^2
+  +\sin^2\varphi\sinh^2\varepsilon
+  \intertext{Fluctuation}
+  &\Delta\paren{b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}}^2\\
+  =&\abs{\alpha}^2\cos^2\varphi
+  +2\cos^2\varphi\sinh^2\varepsilon\cosh^2\varepsilon
+  +\sin^2\varphi\abs{\alpha\sinh\varepsilon+\alpha^*\cosh\varepsilon}^2
+  +\sin^2\varphi\sinh^2\varepsilon\\
+  \approx&\abs{\alpha}^2\varphi'^2
+  +2\varphi^2\sinh^2\varepsilon\cosh^2\varepsilon
+  +\paren{1-\varphi^2}\abs{\alpha\sinh\varepsilon+\alpha^*\cosh\varepsilon}^2
+  +\paren{1-\varphi^2}\sinh^2\varepsilon
+}
+Minimum angle
+\eqar{
+  \varphi'^2\paren{\abs{\alpha}^2-\sinh^2\varepsilon}^2=&\abs{\alpha}^2\varphi'^2
+  +2\varphi'^2\sinh^2\varepsilon\cosh^2\varepsilon
+  +\paren{1-\varphi'^2}\abs{\alpha\sinh\varepsilon+\alpha^*\cosh\varepsilon}^2
+  +\paren{1-\varphi'^2}\sinh^2\varepsilon
+  \intertext{In high power limit}
+  \varphi'^2\abs{\alpha}^4=&\abs{\alpha\sinh\varepsilon+\alpha^*\cosh\varepsilon}^2
+  \intertext{To get a factor of $\beta$ in phase resolution}
+  \frac{\alpha^2}{\beta^2}=&\abs{\alpha\sinh\varepsilon+\alpha^*\cosh\varepsilon}^2
+  \intertext{With correct phase of $\alpha$}
+  \beta=&\ue^{\varepsilon}\\
+  \varepsilon=&\ln\beta
+}
+Squeezing changes the photon number because squeezed vacuum has non-zero photon number.
+
 \subsection{}
+For coherent state
+\eqar{
+  \alpha=&\sqrt{\frac{PL\lambda}{\pi\hbar c^2}}\\
+  =&2.7\cdot10^7\\
+  \varphi_{min}=&3.7\cdot10^{-8}\\
+  l_{min}=&6.3\cdot10^{-15}m\\
+  \varepsilon_{min}=&1.6\cdot10^{-18}
+  \intertext{With a $6$dB squeezed vaccum, the sensitivity can go up by a factor of $4$}
+}
 
 \end{document}
