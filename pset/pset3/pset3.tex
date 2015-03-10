@@ -187,12 +187,60 @@ Weither a phase or number squeezed state is created depends on the initial state
 
 \section{}
 \subsection{}
+\eqar{
+  \angl{N^2}=&\langle0|b^\dagger bb^\dagger b|0\rangle\\
+  =&\langle0|\paren{b_0^\dagger\cosh\varepsilon+b_0\sinh\varepsilon}\paren{b_0\cosh\varepsilon+b_0^\dagger\sinh\varepsilon}\\
+  &\paren{b_0^\dagger\cosh\varepsilon+b_0\sinh\varepsilon}\paren{b_0\cosh\varepsilon+b_0^\dagger\sinh\varepsilon}|0\rangle\\
+  =&\sinh^2\varepsilon\langle0|\paren{b_0^2\cosh\varepsilon+b_0b_0^\dagger\sinh\varepsilon}\paren{{b_0^\dagger}^2\cosh\varepsilon+b_0b_0^\dagger\sinh\varepsilon}|0\rangle\\
+  =&\sinh^2\varepsilon\paren{\sinh^2\varepsilon+2\cosh^2\varepsilon}\\
+  \Delta N^2=&2\sinh^2\varepsilon\cosh^2\varepsilon\\
+  =&2\paren{\Delta b_P^2-\Delta b_Q^2}^2
+  \intertext{For large $\varepsilon$}
+  N\approx&\ue^{2\varepsilon}\\
+  \Delta N\approx&\sqrt{2}\ue^{2\varepsilon}\\
+  =&\sqrt2N
+  \intertext{The fluctuation is larger than classical state which has $\Delta N\propto\sqrt{N}$}
+}
 \subsection{}
+\eqar{
+  &10\log_{10}\paren{4\Delta a_P^2}\\
+  =&20\varepsilon\log_{10}\paren{\ue}
+  \intertext{which scales linearly with $\varepsilon$}
+  \Delta a_P'^2=&\angl{a_P'^2}-\angl{a_P'}^2\\
+  =&\angl{\paren{ta_P+ra_{P0}}^2}-\angl{\paren{ta_P+ra_{P0}}}^2\\
+  =&\angl{t^2a_P^2+r^2a_{P0}^2}-\angl{ta_P}^2\\
+  =&t^2\Delta a_P^2+r^2\Delta a_{P0}^2
+  \intertext{where $a_P$ is the operator for the squeezed input state and $a_{P0}$ is the operator for the vacuum input. In order to decrease it by $3$dB}
+  \Delta a_P'^2=&\frac12\Delta a_P^2\\
+  \Delta a_P^2=&2\paren{T\Delta a_P^2+\frac14\paren{1-T}}\\
+  T=&\frac{2\Delta a_P^2-1}{4\Delta a_P^2-1}
+  \intertext{At the limit of strong squeezing, $T\rightarrow\dfrac12$}
+}
 \subsection{}
 \subsubsection{}
+\includegraphics[width=10cm]{2c1.png}
 \subsubsection{}
+\eqar{
+  \angl{N'}=&\angl{\paren{ta^\dagger+rb^\dagger}\paren{ta+rb}}\\
+  =&\angl{t^2n_a+r^2n_b}\\
+  =&TN_a+\paren{1-T}N_b
+}
 \subsubsection{}
+\eqar{
+  \Delta n'^2=&\angl{n'^2}-\angl{n'}^2\\
+  =&\angl{\paren{\paren{ta^\dagger+rb^\dagger}\paren{ta+rb}}^2}-\angl{\paren{ta^\dagger+rb^\dagger}\paren{ta+rb}}^2\\
+  =&\angl{\paren{t^2n_a+r^2n_b+tr\paren{a^\dagger b+b^\dagger a}}^2}-\paren{TN_a+RN_b}^2\\
+  =&T^2\Delta N_a^2+R^2\Delta N_b^2+TR\angl{\paren{a^\dagger\beta+\beta^*a}^2}
+  \intertext{For large $N_a$ and if the displacement is along the lower variant direction}
+  \Delta n'^2\approx&T^2\Delta N_a^2+R^2\Delta N_b^2
+}
 \subsubsection{}
+\eqar{
+  \Delta n'^2\approx&2T^2N_a^2+R^2 N_b
+  \intertext{In order to be smaller than $\angl{N'}$}
+  N_b>&\frac{\paren{2TN_a-1}N_a}{R}
+  \intertext{And the squeezing should be strong enough that $2TN_a>1$}
+}
 
 \section{}
 \subsection{}
