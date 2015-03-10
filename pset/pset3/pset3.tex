@@ -244,7 +244,49 @@ Weither a phase or number squeezed state is created depends on the initial state
 
 \section{}
 \subsection{}
+\eqar{
+  a_{out}=&\frac{a_2-b_2}{\sqrt{2}}\\
+  =&\frac{a_1\ue^{\ui\varphi}-b_1}{\sqrt{2}}\\
+  =&\frac{1}{2}\paren{\paren{a-b}\ue^{\ui\varphi}-a-b}\\
+  =&\ue^{\ui\varphi/2}\paren{\ui a\sin\frac{\varphi}{2}-b\cos\frac{\varphi}{2}}\\
+  a_{out}^\dagger=&\ue^{-\ui\varphi/2}\paren{-\ui a^\dagger\sin\frac{\varphi}{2}-b^\dagger\cos\frac{\varphi}{2}}
+  \intertext{}
+  b_{out}=&\frac{a_2+b_2}{\sqrt{2}}\\
+  =&\frac{a_1\ue^{\ui\varphi}+b_1}{\sqrt{2}}\\
+  =&\frac{1}{2}\paren{\paren{a-b}\ue^{\ui\varphi}+a+b}\\
+  =&\ue^{\ui\varphi/2}\paren{a\cos\frac{\varphi}{2}-\ui b\sin\frac{\varphi}{2}}\\
+  b_{out}^\dagger=&\ue^{-\ui\varphi/2}\paren{a^\dagger\cos\frac{\varphi}{2}+\ui b^\dagger\sin\frac{\varphi}{2}}
+  \intertext{}
+  n_{out_a}=&\paren{-\ui a^\dagger\sin\frac{\varphi}{2}-b^\dagger\cos\frac{\varphi}{2}}\paren{\ui a\sin\frac{\varphi}{2}-b\cos\frac{\varphi}{2}}\\
+  =&n_a\sin^2\frac{\varphi}{2}+n_b\cos^2\frac{\varphi}{2}+\ui\sin\frac{\varphi}{2}\cos\frac{\varphi}{2}\paren{a^\dagger b-ab^\dagger}
+  \intertext{}
+  n_{out_b}=&\paren{a^\dagger\cos\frac{\varphi}{2}+\ui b^\dagger\sin\frac{\varphi}{2}}\paren{a\cos\frac{\varphi}{2}-\ui b\sin\frac{\varphi}{2}}\\
+  =&n_a\cos^2\frac{\varphi}{2}+n_b\sin^2\frac{\varphi}{2}+\ui\sin\frac{\varphi}{2}\cos\frac{\varphi}{2}\paren{ab^\dagger-a^\dagger b}
+  \intertext{}
+  &b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}\\
+  =&n_a\cos\varphi-n_b\cos\varphi+\ui\sin\varphi\paren{ab^\dagger-a^\dagger b}\\
+  \intertext{Average}
+  &\angl{b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}}\\
+  =&\angl{n_a\cos\varphi}\\
+  =&\abs{\alpha}^2\cos\varphi
+  \intertext{Square}
+  &\angl{\paren{b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}}^2}\\
+  =&\angl{\paren{n_a\cos\varphi-n_b\cos\varphi+\ui\sin\varphi\paren{ab^\dagger-a^\dagger b}}\paren{n_a\cos\varphi-n_b\cos\varphi+\ui\sin\varphi\paren{ab^\dagger-a^\dagger b}}}\\
+  =&\angl{\paren{n_a\cos\varphi-\ui\sin\varphi\alpha^*b}\paren{n_a\cos\varphi+\ui\sin\varphi\alpha b^\dagger}}\\
+  =&\cos^2\varphi\angl{n_a}^2+\abs{\alpha}^2\sin^2\varphi\\
+  \intertext{Fluctuation}
+  &\Delta\paren{b_{out}^\dagger b_{out}-a_{out}^\dagger a_{out}}^2\\
+  =&\cos^2\varphi\Delta n_a^2+\abs{\alpha}^2\sin^2\varphi\\
+  =&\abs{\alpha}^2\\
+  SNR=&\frac{\abs{\alpha}^2\cos\varphi}{\abs{\alpha}}\\
+  =&\abs{\alpha}\cos\varphi
+}
 \subsection{}
+$\varphi'=\dfrac\pi2-\varphi$
+\eqar{
+  SNR\approx&\abs{\alpha}\varphi'\\
+  \varphi'_{min}=&\frac{1}{\abs{\alpha}}
+}
 \subsection{}
 \subsection{}
 
