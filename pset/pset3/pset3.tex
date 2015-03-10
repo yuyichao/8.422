@@ -149,6 +149,24 @@ Recitation Section \psettitlersection
 }
 The state is squeezed in $Q$ direction while the product of the uncertainty in $P$ and $Q$ remains the same.
 \subsection{}
+Under the transformation $U=\ue^{\ui\omega t a^\dagger a}$
+\eqar{
+  UaU^\dagger=&\ue^{\ui\omega t a^\dagger a}a\ue^{-\ui\omega t a^\dagger a}\\
+  =&\sum_N\frac{\paren{\ui\omega t}^N}{N!}\sqr{a^\dagger a, a}_N\\
+  =&\ue^{-\ui\omega t}a\\
+  Ua^\dagger U^\dagger=&\ue^{\ui\omega t}a^\dagger\\
+  \diff{}{t}|\psi'\rangle=&\diff{}{t}U|\psi\rangle\\
+  =&\diff{U}{t}|\psi\rangle+U\diff{}{t}|\psi\rangle\\
+  =&\diff{\ue^{\ui\omega t a^\dagger a}}{t}|\psi\rangle+\frac{U}{\ui\hbar}H|\psi\rangle\\
+  =&\ui\omega a^\dagger a|\psi'\rangle+\frac{1}{\ui\hbar}UHU^\dagger |\psi'\rangle\\
+  =&\Lambda U\paren{{a^\dagger}^2\ue^{-2\ui\omega t}-a^2\ue^{2\ui\omega t}}U^\dagger |\psi'\rangle\\
+  =&\Lambda\paren{{a^\dagger}^2-a^2}|\psi'\rangle\\
+  \intertext{Therefore, the state $|\psi'\rangle$ is transforming as}
+  &\ue^{\Lambda t\paren{{a^\dagger}^2-a^2}}
+  \intertext{where}
+  \varepsilon=&-2\Lambda t
+}
+
 \subsection{}
 \subsubsection{}
 \includegraphics[width=10cm]{{1e1_0.2}.png}\\
