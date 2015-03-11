@@ -164,7 +164,39 @@ Under the transformation $U=\ue^{\ui\omega t a^\dagger a}$
   \intertext{Therefore, the state $|\psi'\rangle$ is transforming as}
   &\ue^{\Lambda t\paren{{a^\dagger}^2-a^2}}
   \intertext{where}
-  \varepsilon=&-2\Lambda t
+  \varepsilon=&-2\Lambda t\\
+  S=&\exp\paren{\frac{\varepsilon}2\paren{a^2-{a^\dagger}^2}}
+  \intertext{Acting on the state}
+  |0_\varepsilon\rangle=&S|0\rangle\\
+  SaS^\dagger|0_\varepsilon\rangle=&Sa|0\rangle\\
+  =&0\\
+  0=&a^{n-1}\paren{a\cosh\varepsilon+a^\dagger\sinh\varepsilon}|0_\varepsilon\rangle\\
+  0=&\langle0|\paren{a^n\cosh\varepsilon+\paren{n-1}a^{n-2}\sinh\varepsilon}|0_\varepsilon\rangle
+  \intertext{Let}
+  |0_\varepsilon\rangle=&\sum_{n}c_n|n\rangle\\
+  \intertext{For $n=1$}
+  0=&\langle1|0_\varepsilon\rangle\\
+  c_1=&0
+  \intertext{For $n\geqslant2$}
+  0=&\sqrt{n!}\cosh\varepsilon c_n+\sqrt{\paren{n-2}!}\paren{n-1}\sinh\varepsilon c_{n-2}\\
+  c_n=&-\sqrt{\frac{n-1}{n}}\tanh\varepsilon c_{n-2}
+  \intertext{Therefore all $c_n$ with odd $n$ are $0$.}
+  c_{n}=&\left\{
+    \begin{array}{ll}
+      c_0\paren{-1}^{n/2}\sqrt{\dfrac{\paren{n-1}!!}{n!!}}\tanh^{n/2}\varepsilon&(2\mid n)\\
+      0&(2\nmid n)
+    \end{array}
+  \right.\\
+  |0_\varepsilon\rangle=&c_0\sum_{n}\paren{-1}^n\sqrt{\dfrac{\paren{2n-1}!!}{\paren{2n}!!}}\tanh^n\varepsilon|n\rangle\\
+  =&c_0\sum_{n}\paren{-1}^n\dfrac{\sqrt{\paren{2n}!}}{2^n\paren{n}!}\tanh^n\varepsilon|n\rangle\\
+  \langle0_\varepsilon|0_\varepsilon\rangle=&c_0^2\sum_{n}\dfrac{\paren{2n}!}{2^{2n}\paren{2n}!^2}\tanh^{2n}\varepsilon
+  \intertext{Since}
+  \frac1{\sqrt{1-x}}=&\sum_{n}\dfrac{\paren{2n}!}{2^{2n}\paren{2n}!^2}x^{n}\\
+  \langle0_\varepsilon|0_\varepsilon\rangle=&\frac{c_0^2}{\sqrt{1-\tanh^{2}\varepsilon}}\\
+  =&\frac{c_0^2}{\cosh\varepsilon}\\
+  =&1\\
+  c_0=&\sqrt{\cosh\varepsilon}\\
+  |0_\varepsilon\rangle=&\frac1{\sqrt{\cosh\varepsilon}}\sum_{n}\paren{-1}^n\dfrac{\sqrt{\paren{2n}!}}{2^n\paren{n}!}\tanh^n\varepsilon|n\rangle\\
 }
 
 \subsection{}
