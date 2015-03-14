@@ -111,49 +111,130 @@ Recitation Section \psettitlersection
 \begin{document}
 \section{}
 \subsection{}
+Define
+\eqar{
+  Y\paren{x, y}=&\frac{x^ny^{n-1}+x^{n-1}y^n}{\sqrt{2n!\paren{n-1}!}}
+  \intertext{when $\sqr{x, y}=0$}
+  Y\paren{x, y}=&x^{n-1}y^{n-1}\frac{x+y}{\sqrt{2n!\paren{n-1}!}}
+  \intertext{we also have, for any number $\lambda$}
+  Y\paren{\lambda x, \lambda y}=&\lambda^{2n-1}Y\paren{x, y}
+}
 Before the first beam splitter
 \eqar{
-  |\psi_0\rangle=&\frac{{a^\dagger}^n{b^\dagger}^{n-1}+{a^\dagger}^{n-1}{b^\dagger}^n}{\sqrt{2n!\paren{n-1}!}}|0, 0\rangle\\
+  |\psi_0\rangle=&Y\paren{a^\dagger, b^\dagger}|0, 0\rangle\\
   =&{a^\dagger}^{n-1}{b^\dagger}^{n-1}\frac{{a^\dagger}+{b^\dagger}}{\sqrt{2n!\paren{n-1}!}}|0, 0\rangle
   \intertext{After the first beam splitter}
   |\psi_1\rangle=&B|\psi_0\rangle\\
-  =&B{a^\dagger}^{n-1}{b^\dagger}^{n-1}\frac{{a^\dagger}+{b^\dagger}}{\sqrt{2n!\paren{n-1}!}}B^\dagger B|0, 0\rangle\\
+  =&BY\paren{a^\dagger, b^\dagger}B^\dagger|0, 0\rangle\\
+  =&Y\paren{Ba^\dagger B^\dagger, Bb^\dagger B^\dagger}|0, 0\rangle\\
+  =&\frac{\sqrt{2}}{2^n}Y\paren{a^\dagger-\ui b^\dagger, b^\dagger-\ui a^\dagger}|0, 0\rangle\\
   =&\paren{a^\dagger-\ui b^\dagger}^{n-1}\paren{b^\dagger-\ui a^\dagger}^{n-1}\frac{a^\dagger-\ui b^\dagger+b^\dagger-\ui a^\dagger}{2^{n}\sqrt{n!\paren{n-1}!}}|0, 0\rangle\\
   =&\paren{-\ui}^{n-1}\paren{1-\ui}\paren{{a^\dagger}^2+{b^\dagger}^2}^{n-1}\frac{a^\dagger+b^\dagger}{2^{n}\sqrt{n!\paren{n-1}!}}|0, 0\rangle
   \intertext{After phase shift}
-  |\psi_2\rangle=&\paren{-\ui}^{n-1}\paren{1-\ui}\paren{\ue^{-2\ui\phi}{a^\dagger}^2+{b^\dagger}^2}^{n-1}\frac{\ue^{-\ui\phi}a^\dagger+b^\dagger}{2^{n}\sqrt{n!\paren{n-1}!}}|0, 0\rangle
+  |\psi_2\rangle=&\frac{\sqrt{2}}{2^n}Y\paren{\ue^{-\ui\phi}a^\dagger-\ui b^\dagger, b^\dagger-\ui \ue^{-\ui\phi}a^\dagger}|0, 0\rangle\\
+  =&\paren{-\ui}^{n-1}\paren{1-\ui}\paren{\ue^{-2\ui\phi}{a^\dagger}^2+{b^\dagger}^2}^{n-1}\frac{\ue^{-\ui\phi}a^\dagger+b^\dagger}{2^{n}\sqrt{n!\paren{n-1}!}}|0, 0\rangle
   \intertext{Output}
   |\psi_3\rangle=&B^\dagger|\psi_2\rangle\\
-  =&\paren{-\ui}^{n-1}\paren{1-\ui}B^\dagger\paren{\ue^{-2\ui\phi}{a^\dagger}^2+{b^\dagger}^2}^{n-1}\frac{\ue^{-\ui\phi}a^\dagger+b^\dagger}{2^{2n-1/2}\sqrt{n!\paren{n-1}!}}B|0, 0\rangle\\
-  =&\paren{-\ui}^{n-1}\paren{1-\ui}\paren{\ue^{-2\ui\phi}{\paren{a^\dagger+\ui b^\dagger}}^2+{\paren{b^\dagger+\ui a^\dagger}}^2}^{n-1}\frac{\ue^{-\ui\phi}\paren{a^\dagger+\ui b^\dagger}+\paren{b^\dagger+\ui a^\dagger}}{2^{2n-1/2}\sqrt{n!\paren{n-1}!}}|0, 0\rangle\\
-  =&\frac{\ue^{-\ui\phi\paren{n-1/2}}\paren{-\ui}^{n-1}\paren{1-\ui}}{2^{2n-1/2}\sqrt{n!\paren{n-1}!}}\paren{\ue^{-\ui\phi}{\paren{a^\dagger+\ui b^\dagger}}^2+\ue^{\ui\phi}{\paren{b^\dagger+\ui a^\dagger}}^2}^{n-1}\\
-  &\paren{\ue^{-\ui\phi/2}\paren{a^\dagger+\ui b^\dagger}+\ue^{\ui\phi/2}\paren{b^\dagger+\ui a^\dagger}}|0, 0\rangle\\
-  =&\frac{\ue^{-\ui\phi\paren{n-1/2}}\paren{-\ui}^{n-1}\paren{1-\ui}}{2^{2n-1/2}\sqrt{n!\paren{n-1}!}}\paren{
-    4\ui\cos\phi a^\dagger b^\dagger
-    +2\ui\sin\phi\paren{{b^\dagger}^2-{a^\dagger}^2}
-  }^{n-1}\\
-  &\paren{
-    \paren{1+\ui}\cos\frac\phi2\paren{a^\dagger+b^\dagger}
-    -\ui\paren{1-\ui}\sin\frac\phi2\paren{a^\dagger-b^\dagger}
-  }|0, 0\rangle\\
-  =&\frac{\ue^{-\ui\phi\paren{n-1/2}}}{2^{n-1/2}\sqrt{n!\paren{n-1}!}}\paren{
-    2\cos\phi a^\dagger b^\dagger
-    +\sin\phi\paren{{b^\dagger}^2-{a^\dagger}^2}
-  }^{n-1}\\
-  &\paren{
-    \cos\frac\phi2\paren{a^\dagger+b^\dagger}
-    -\sin\frac\phi2\paren{a^\dagger-b^\dagger}
-  }|0, 0\rangle
+  =&\frac{\ue^{-\ui\phi\paren{n-1/2}}}{2^{2n-1}}Y\paren{\ue^{-\ui\phi/2}\paren{a^\dagger+\ui b^\dagger}-\ui \ue^{\ui\phi/2}\paren{b^\dagger+\ui a^\dagger}, \ue^{\ui\phi/2}\paren{b^\dagger+\ui a^\dagger}-\ui \ue^{-\ui\phi/2}\paren{a^\dagger+\ui b^\dagger}}|0, 0\rangle\\
+  =&\frac{\ue^{-\ui\phi\paren{n-1/2}}}{2^{2n-1}}Y\paren{2\cos\frac{\phi}{2}a^\dagger+2\sin\frac{\phi}{2}b^\dagger, 2\cos\frac{\phi}{2}b^\dagger-2\sin\frac{\phi}{2}a^\dagger}|0, 0\rangle\\
+  =&\ue^{-\ui\phi\paren{n-1/2}}Y\paren{\cos\frac{\phi}{2}a^\dagger+\sin\frac{\phi}{2}b^\dagger, \cos\frac{\phi}{2}b^\dagger-\sin\frac{\phi}{2}a^\dagger}|0, 0\rangle\\
+  =&\frac{\ue^{-\ui\phi\paren{n-1/2}}}{\sqrt{2n!\paren{n-1}!}}
+  \paren{\cos\frac{\phi}{2}a^\dagger+\sin\frac{\phi}{2}b^\dagger}^{n-1}
+  \paren{\cos\frac{\phi}{2}b^\dagger-\sin\frac{\phi}{2}a^\dagger}^{n-1}\\
+  &\paren{\cos\frac{\phi}{2}a^\dagger+\sin\frac{\phi}{2}b^\dagger+\cos\frac{\phi}{2}b^\dagger-\sin\frac{\phi}{2}a^\dagger}
+  |0, 0\rangle
   \intertext{For $\phi=0$}
-  |\phi_3\rangle_0=&\frac{1}{2^{n-1/2}\sqrt{n!\paren{n-1}!}}\paren{
-    2 a^\dagger b^\dagger
-  }^{n-1}\paren{a^\dagger+b^\dagger}|0, 0\rangle\\
-  =&\frac{1}{\sqrt{n!\paren{n-1}!}}
+  |\phi_3\rangle_0=&\frac{1}{\sqrt{n!\paren{n-1}!}}
   {a^\dagger}^{n-1} {b^\dagger}^{n-1}
   \frac{a^\dagger+b^\dagger}{\sqrt2}|0, 0\rangle\\
   =&|\phi_0\rangle
 }
 \subsection{}
+Let
+\eqar{
+  a'=&\cos\frac{\phi}{2}a+\sin\frac{\phi}{2}b\\
+  b'=&\cos\frac{\phi}{2}b-\sin\frac{\phi}{2}a
+  \intertext{then}
+  a'^\dagger=&\cos\frac{\phi}{2}a^\dagger+\sin\frac{\phi}{2}b^\dagger\\
+  b'^\dagger=&\cos\frac{\phi}{2}b^\dagger-\sin\frac{\phi}{2}a^\dagger\\
+  a=&\cos\frac{\phi}{2}a'-\sin\frac{\phi}{2}b'\\
+  b=&\cos\frac{\phi}{2}b'+\sin\frac{\phi}{2}a'\\
+  a^\dagger=&\cos\frac{\phi}{2}a'^\dagger-\sin\frac{\phi}{2}b'^\dagger\\
+  b^\dagger=&\cos\frac{\phi}{2}b'^\dagger+\sin\frac{\phi}{2}a'^\dagger\\
+  \sqr{a', a'^\dagger}=&1\\
+  \sqr{b', b'^\dagger}=&1\\
+  |\phi_3\rangle=&\frac{\ue^{-\ui\phi\paren{n-1/2}}}{\sqrt{n!\paren{n-1}!}}
+  {a'^\dagger}^{n-1} {b'^\dagger}^{n-1}
+  \frac{a'^\dagger+b'^\dagger}{\sqrt2}|0, 0\rangle
+  \intertext{}
+  M=&a^\dagger a-b^\dagger b\\
+  =&\paren{\cos\frac{\phi}{2}a'^\dagger-\sin\frac{\phi}{2}b'^\dagger}\paren{\cos\frac{\phi}{2}a'-\sin\frac{\phi}{2}b'}-\paren{\cos\frac{\phi}{2}b'^\dagger+\sin\frac{\phi}{2}a'^\dagger}\paren{\cos\frac{\phi}{2}b'+\sin\frac{\phi}{2}a'}\\
+  =&\cos^2\frac{\phi}{2}a'^\dagger a'+\sin^2\frac{\phi}{2}b'^\dagger b'
+  -\sin\frac{\phi}{2}\cos\frac{\phi}{2}\paren{a'b'^\dagger+a'^\dagger b'}\\
+  &-\cos^2\frac{\phi}{2}b'^\dagger b'
+  -\sin\frac{\phi}{2}\cos\frac{\phi}{2}a'^\dagger b'
+  -\sin\frac{\phi}{2}\cos\frac{\phi}{2}a' b'^\dagger
+  -\sin^2\frac{\phi}{2}a'^\dagger a'\\
+  =&\cos\phi\paren{a'^\dagger a'-b'^\dagger b'}-\sin\phi\paren{a'b'^\dagger+a'^\dagger b'}
+  \intertext{Mean}
+  \angl{M}=&\frac{1}{2n!\paren{n-1}!}
+  \langle0, 0|
+  {a'}^{n-1} {b'}^{n-1}
+  \paren{a'+b'}
+  \paren{\cos\phi\paren{a'^\dagger a'-b'^\dagger b'}-\sin\phi\paren{a'b'^\dagger+a'^\dagger b'}}\\
+  &{a'^\dagger}^{n-1} {b'^\dagger}^{n-1}
+  \paren{a'^\dagger+b'^\dagger}|0, 0\rangle\\
+  =&\frac{\cos\phi}{2n!\paren{n-1}!}
+  \langle0, 0|
+  {a'}^{n-1} {b'}^{n-1}
+  \paren{a'+b'}
+  \paren{a'^\dagger a'-b'^\dagger b'}{a'^\dagger}^{n-1} {b'^\dagger}^{n-1}
+  \paren{a'^\dagger+b'^\dagger}|0, 0\rangle\\
+  &-\frac{\sin\phi}{2n!\paren{n-1}!}
+  \langle0, 0|
+  {a'}^{n-1} {b'}^{n-1}
+  \paren{a'+b'}
+  \paren{a'b'^\dagger+a'^\dagger b'}{a'^\dagger}^{n-1} {b'^\dagger}^{n-1}
+  \paren{a'^\dagger+b'^\dagger}|0, 0\rangle\\
+  =&-n\sin\phi
+  \intertext{Square}
+  M^2=&\paren{\cos\phi\paren{a'^\dagger a'-b'^\dagger b'}-\sin\phi\paren{a'b'^\dagger+a'^\dagger b'}}^2\\
+  =&\cos^2\phi\paren{a'^\dagger a'a'^\dagger a'-2a'^\dagger a'b'^\dagger b'+b'^\dagger b'b'^\dagger b'}+\sin^2\phi
+  \paren{
+    a'^2{b'^\dagger}^2+a'a'^\dagger b'^\dagger b'+a'^\dagger a'b'b'^\dagger+{a'^\dagger}^2b'^2
+  }\\
+  &
+  -\sin\phi\cos\phi\paren{2a'^\dagger a'^2b'^\dagger+a'b'^\dagger
+    +2{a'^\dagger}^2 a'b'+a'^\dagger b'
+    -2a'{b'^\dagger}^2b'-a'b'^\dagger
+    -2a'^\dagger{b'^\dagger}b'^2-a'^\dagger b'}\\
+  =&\cos^2\phi\paren{a'^\dagger a'a'^\dagger a'-2a'^\dagger a'b'^\dagger b'+b'^\dagger b'b'^\dagger b'}+\sin^2\phi
+  \paren{
+    a'^2{b'^\dagger}^2+a'a'^\dagger b'^\dagger b'+a'^\dagger a'b'b'^\dagger+{a'^\dagger}^2b'^2
+  }\\
+  &-2\sin\phi\cos\phi\paren{a'^\dagger a'^2b'^\dagger+{a'^\dagger}^2 a'b'
+    -a'{b'^\dagger}^2b'-a'^\dagger{b'^\dagger}b'^2}\\
+  \angl{M^2}=&\cos^2\phi\angl{a'^\dagger a'a'^\dagger a'-2a'^\dagger a'b'^\dagger b'+b'^\dagger b'b'^\dagger b'}\\
+  &+\sin^2\phi\angl{
+    a'^2{b'^\dagger}^2+a'a'^\dagger b'^\dagger b'+a'^\dagger a'b'b'^\dagger+{a'^\dagger}^2b'^2
+  }\\
+  &-2\sin\phi\cos\phi\angl{a'^\dagger a'^2b'^\dagger+{a'^\dagger}^2 a'b'
+    -a'{b'^\dagger}^2b'-a'^\dagger{b'^\dagger}b'^2}\\
+  =&\frac{\cos^2\phi}{2n}\paren{n^3+\paren{n-1}^2n-2n^2\paren{n-1}-2n^2\paren{n-1}+\paren{n-1}^2n+n^3}\\
+  &+\frac{\sin^2\phi}{2n}\paren{2\paren{n-1}n\paren{n+1}+2n^3}\\
+  &-\frac{\sin\phi\cos\phi}{n}\paren{n^2\paren{n-1}+n^2\paren{n-1}
+    -n^2\paren{n-1}-n^2\paren{n-1}}\\
+  =&\cos^2\phi+\sin^2\phi\paren{2n^2-1}
+  \intertext{Fluctuation}
+  \Delta M^2=&\cos^2\phi+\sin^2\phi\paren{2n^2-1}-n^2\sin^2\phi\\
+  =&\cos^2\phi+\sin^2\phi\paren{n^2-1}\\
+  \pdiff{\angl{M}}{\phi}=&-n\cos\phi\\
+  \Delta \phi^2=&\frac{\cos^2\phi+\sin^2\phi\paren{n^2-1}}{n^2\cos^2\phi}\\
+  =&\frac{1+\tan^2\phi\paren{n^2-1}}{n^2}\\
+  \Delta \phi=&\frac{\sqrt{1+\tan^2\phi\paren{n^2-1}}}{n}
+  \intertext{for $\phi=0$}
+  \Delta \phi=&\frac{1}{n}
+}
 \subsection{}
 \subsection{}
 
