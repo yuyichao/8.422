@@ -236,7 +236,31 @@ Let
   \Delta \phi=&\frac{1}{n}
 }
 \subsection{}
+\eqar{
+  |\psi_0\rangle=&\left|\alpha, 0\right\rangle\\
+  |\psi_1\rangle=&\left|\frac{\alpha}{\sqrt{2}}, -\frac{\ui\alpha}{\sqrt{2}}\right\rangle\\
+  |\psi_2\rangle=&\left|\frac{\alpha\ue^{-\ui\phi}}{\sqrt{2}}, -\frac{\ui\alpha}{\sqrt{2}}\right\rangle\\
+  |\psi_3\rangle=&\left|\frac{\alpha\ue^{-\ui\phi}}{2}+\frac{\alpha}{2}, \ui\paren{\frac{\alpha\ue^{-\ui\phi}}{2}-\frac{\alpha}{2}}\right\rangle\\
+  =&\left|\alpha\ue^{-{\ui\phi}/{2}}\cos\frac{\phi}{2},
+    \alpha\ue^{-{\ui\phi}/{2}}\sin\frac{\phi}{2}\right\rangle
+}
 \subsection{}
+Mean
+\eqar{
+  \angl{M}=&\angl{a^\dagger a-b^\dagger b}\\
+  =&\alpha^*\ue^{{\ui\phi}/{2}}\cos\frac{\phi}{2}\alpha\ue^{-{\ui\phi}/{2}}\cos\frac{\phi}{2}-\alpha^*\ue^{{\ui\phi}/{2}}\sin\frac{\phi}{2} \alpha\ue^{-{\ui\phi}/{2}}\sin\frac{\phi}{2}\\
+  =&\abs{\alpha}^2\cos^2\frac{\phi}{2}-\alpha^2\sin^2\frac{\phi}{2}\\
+  =&\abs{\alpha}^2\cos\phi
+  \intertext{Square}
+  \angl{M^2}=&\angl{\paren{a^\dagger a-b^\dagger b}
+    \paren{a^\dagger a-b^\dagger b}}\\
+  =&\angl{a^\dagger aa^\dagger a-a^\dagger ab^\dagger b-b^\dagger ba^\dagger a+b^\dagger bb^\dagger b}\\
+  =&\angl{M}^2+\angl{a^\dagger a+b^\dagger b}\\
+  =&\angl{M}^2+\abs{\alpha}^2
+  \intertext{Uncertainty}
+  \angl{\Delta\phi^2}=&\frac{\abs{\alpha}^2}{\abs{\alpha}^4\sin^2\phi}\\
+  =&\frac{1}{\abs{\alpha}^2\sin^2\phi}
+}
 
 \section{}
 \subsection{}
@@ -280,6 +304,13 @@ For $^{6}\text{Li}$ at $500\mu\text{K}$
 \end{tikzpicture}
 
 \subsubsection{}
+\eqar{
+  \Delta k=&\frac{\Delta p}{\hbar}\\
+  =&\frac{m}{\hbar}\Delta v\\
+  =&\frac{m}{\hbar}\Delta\paren{\frac{d}{\tau}}\\
+  =&\frac{mL}{\hbar\tau}\\
+  =&\frac{mLv}{\hbar d}
+}
 
 \subsection{}
 
