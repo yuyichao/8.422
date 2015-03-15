@@ -255,6 +255,7 @@ In order to see the correlation $\Delta\phi_t\ll1$,
   =&\frac{2\pi Ww}{\lambda d}\\
   \lambda d\gg&Ww
 }
+For $^{6}\text{Li}$ at $500\mu\text{K}$
 \eqar{
   \lambda=&\frac{\hbar}{p}\\
   =&\frac{\hbar}{\sqrt{mk_BT}}\\
@@ -263,6 +264,23 @@ In order to see the correlation $\Delta\phi_t\ll1$,
   \approx&36\mu\text{m}
 }
 \subsection{}
+\subsubsection{}
+\eqar{
+  \angl{P}=&2\abs{\psi_A}^2\abs{\psi_B}^2\sqrt{\frac{\gamma}{\pi}}\int\paren{1\pm\cos\Delta k_r r_{21}}\ue^{-\Delta k_r^2\gamma^2}\ud\Delta k_r\\
+  =&2\abs{\psi_A}^2\abs{\psi_B}^2\paren{1\pm\exp\paren{-\frac{r^2_{21}}{4\gamma^2}}}\\
+  =&2\abs{\psi_A}^2\abs{\psi_B}^2\paren{1\pm\exp\paren{-\frac{r^2_{21l}+r^2_{21t}}{4\gamma^2}}}
+}
+\begin{tikzpicture}
+  \draw[blue] (0, 0) plot[domain=-3:3, samples=1000] function {1 + exp(-x*x / 2)};
+  \draw[red] (0, 0) plot[domain=-3:3, samples=1000] function {1 - exp(-x*x / 2)};
+  \draw[->, line width=1] (-3.5, 0) -- (3.5, 0) node[below] {$r_{21}$};
+  \draw[->, line width=1] (0, 0) -- (0, 2.5) node[right] {$\angl{P}$};
+  \path (3, 1) node[blue, above] {Boson};
+  \path (3, 1) node[red, below] {Fermion};
+\end{tikzpicture}
+
+\subsubsection{}
+
 \subsection{}
 
 \end{document}
