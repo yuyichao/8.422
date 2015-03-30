@@ -111,11 +111,40 @@ Recitation Section \psettitlersection
 \begin{document}
 \section{}
 \subsection{}
+\eqar{
+}
 \subsection{}
 
 \section{}
 \subsection{}
+For atoms in an isotropic environment
+\eqar{
+  \langle g|\vec d|g \rangle=&\langle i|\vec d|i \rangle\\
+  =&0
+}
+The first order correction to the energy is $0$.\\
+Second order
+\eqar{
+  \delta E=&-\sum_{i_a, i_b}\frac{\abs{\langle i_ai_b|H_{el}|gg\rangle}^2}{\hbar\omega^a_{ig}+\hbar\omega^b_{ig}}\\
+  \langle i_ai_b|H_{el}|gg \rangle=&\frac{e^2}{R^3}\paren{\vec r^a_{ig}\cdot\vec r^b_{ig}-3x^a_{ig}x^b_{ig}}
+  \intertext{Since the system is symmetric for rotation around $\vec R$, the ``good'' states to calculate the energy shift should also have the same symmetry. Therefore $\vec r^a$ and $\vec r^b$ should be along the $\vec R$ ($x$) direction}
+  \langle i_ai_b|H_{el}|gg \rangle=&-\frac{2e^2x^a_{ig}x^b_{ig}}{R^3}\\
+  \delta E=&-\sum_{i_a, i_b}\frac{1}{\hbar\omega^a_{ig}+\hbar\omega^b_{ig}}\abs{\frac{2e^2x^a_{ig}x^b_{ig}}{R^3}}^2\\
+  =&-\frac{4e^4}{\hbar R^6}\sum_{i_a, i_b}\frac{\abs{x^a_{ig}}^2\abs{x^b_{ig}}^2}{\omega^a_{ig}+\omega^b_{ig}}
+}
 \subsection{}
+\eqar{
+  \abs{x_{ig}}^2=&\frac{\hbar f_{ig}}{2m\omega_{ig}}\\
+  \delta E=&-\frac{4e^4}{\hbar R^6}\sum_{i_a, i_b}\frac{1}{\omega^a_{ig}+\omega^b_{ig}}\frac{\hbar f^a_{ig}}{2m\omega^a_{ig}}\frac{\hbar f^b_{ig}}{2m\omega^b_{ig}}\\
+  =&-\frac{\hbar e^4}{m^2R^6}\sum_{i_a, i_b}\frac{f^a_{ig}f^b_{ig}}{\paren{\omega^a_{ig}+\omega^b_{ig}}\omega^a_{ig}\omega^b_{ig}}
+}
 \subsection{}
+Since the oscillator strength for the ground state is always positive, if the first excited state has $f\approx1$, the contribution from other transitions are small. With this approximation,
+\eqar{
+  \abs{x_{ig}}^2=&\frac{\hbar\omega_{ig}}{2e^2}\alpha_g\\
+  \delta E=&-\frac{4e^4}{\hbar R^6}\frac{1}{\omega^a_{ig}+\omega^b_{ig}}\frac{\hbar\omega^a_{ig}}{2e^2}\alpha^a_g\frac{\hbar\omega^b_{ig}}{2e^2}\alpha^b_g\\
+  =&-\frac{\hbar}{R^6}\frac{\omega^a_{ig}\omega^b_{ig}}{\omega^a_{ig}+\omega^b_{ig}}\alpha^a_g\alpha^b_g\\
+  C_6=&\hbar\frac{\omega^a_{ig}\omega^b_{ig}}{\omega^a_{ig}+\omega^b_{ig}}\alpha^a_g\alpha^b_g
+}
 
 \end{document}
