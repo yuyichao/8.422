@@ -111,7 +111,54 @@ Recitation Section \psettitlersection
 \begin{document}
 \section{}
 \subsection{}
+Rayleigh scattering.
 \eqar{
+  |i\rangle=&|a;\vec k\vec e\rangle\\
+  |f\rangle=&|a;\vec k'\vec e'\rangle
+  \intertext{Using the electric-dipole Hamiltonian}
+  H_I'=&-\ui \sum_{\vec e, \vec k}\sqrt{\frac{\hbar\omega}{2V\varepsilon_0}}\vec d\cdot\paren{\vec e a_{ke}-\vec e^*a_{ke}^\dagger}
+  \intertext{Two paths}
+  \langle b;0|H_I'|a;\vec k\vec e\rangle=&-\ui\sqrt{\frac{\hbar\omega}{2V\varepsilon_0}}\langle b|\vec d\cdot\vec e|a\rangle\\
+  \langle b;\vec k\vec e,\vec k'\vec e'|H_I'|a;\vec k\vec e\rangle=&\ui\sqrt{\frac{\hbar\omega}{2V\varepsilon_0}}\langle b|\vec d\cdot\vec e'^*|a\rangle\\
+  \mathcal{T}_{fi}=&\frac{\hbar\omega}{2\varepsilon_0V}\paren{\frac{\langle a|\vec d\cdot\vec e'^*|b\rangle\langle b|\vec d\cdot\vec e|a\rangle}{E_a-E_b+\hbar\omega}+\frac{\langle a|\vec d\cdot\vec e|b\rangle\langle b|\vec d\cdot\vec e'^*|a\rangle}{E_a-E_b-\hbar\omega}}\\
+  \approx&\frac{\omega}{2\omega_0\varepsilon_0V}\paren{\langle a|\vec d\cdot\vec e'^*|b\rangle\langle b|\vec d\cdot\vec e|a\rangle+\langle a|\vec d\cdot\vec e|b\rangle\langle b|\vec d\cdot\vec e'^*|a\rangle}
+  \intertext{Using the Coulomb-gauge Hamiltonian}
+  H_{I1}=&-\frac{q}{m}\sum_{\vec e, \vec k}\sqrt{\frac{\hbar}{2\omega V\varepsilon_0}}\vec p\cdot\paren{\vec e a_{ke}+\vec e^*a_{ke}^\dagger}\\
+  H_{I2}=&\frac{\hbar q^2}{4mV\varepsilon_0}\sum_{\vec e, \vec k, \vec e', \vec k'}\frac{1}{\sqrt{\omega'\omega}}\paren{\vec e a_{ke}+\vec e^*a_{ke}^\dagger}\paren{\vec e' a_{k'e'}+\vec e'^*a_{k'e'}^\dagger}
+  \intertext{Two paths for $H_{I1}$}
+  \langle b;0|H_{I1}|a;\vec k\vec e\rangle=&-\frac{q}{m}\langle b;0|\sum_{\vec e, \vec k}\sqrt{\frac{\hbar}{2\omega V\varepsilon_0}}\vec p\cdot\paren{\vec e a_{ke}+\vec e^*a_{ke}^\dagger}|a;\vec k\vec e\rangle\\
+  =&-\frac{q}{m}\sqrt{\frac{\hbar}{2\omega V\varepsilon_0}}\langle b|\vec p\cdot\vec e|a\rangle\\
+  \langle b;\vec k\vec e,\vec k'\vec e'|H_{I1}|a;\vec k\vec e\rangle=&-\frac{q}{m}\langle b;\vec k\vec e,\vec k'\vec e'|\sum_{\vec e, \vec k}\sqrt{\frac{\hbar}{2\omega V\varepsilon_0}}\vec p\cdot\paren{\vec e a_{ke}+\vec e^*a_{ke}^\dagger}|a;\vec k\vec e\rangle\\
+  =&-\frac{q}{m}\sqrt{\frac{\hbar}{2\omega V\varepsilon_0}}\langle b|\vec p\cdot\vec e'^*|a\rangle
+  \intertext{Since}
+  \sqr{\vec x, H_0}=&\frac{1}{2m}\sqr{\vec x, p^2}\\
+  =&\frac{\ui\hbar}{m}\vec p\\
+  \langle b|\vec p\cdot\vec e|a\rangle=&\frac{m}{\ui\hbar}\langle b|\sqr{\vec x, H_0}\cdot\vec e|a\rangle\\
+  =&\frac{m}{\ui\hbar}\langle b|\paren{E_a-E_b}\vec x\cdot\vec e|a\rangle\\
+  =&\ui m\omega_0\langle b|\vec x\cdot\vec e|a\rangle\\
+  % \langle b;0|H_{I1}|a;\vec k\vec e\rangle=&-\ui\omega_0\sqrt{\frac{\hbar}{2\omega V\varepsilon_0}}\langle b|\vec d\cdot\vec e|a\rangle\\
+  % \langle b;\vec k\vec e,\vec k'\vec e'|H_{I1}|a;\vec k\vec e\rangle=&-\ui\omega_0\sqrt{\frac{\hbar}{2\omega V\varepsilon_0}}\langle b|\vec d\cdot\vec e'^*|a\rangle
+  \intertext{Matrix element}
+  \mathcal{T}_{fi1}=&\frac{q^2\hbar}{2m^2\varepsilon_0\omega V}\paren{\frac{\langle a|\vec p\cdot\vec e'^*|b\rangle\langle b|\vec p\cdot\vec e|a\rangle}{E_a-E_b+\hbar\omega}+\frac{\langle a|\vec p\cdot\vec e|b\rangle\langle b|\vec p\cdot\vec e'^*|a\rangle}{E_a-E_b-\hbar\omega}}\\
+  \mathcal{T}_{fi2}=&\frac{\hbar q^2}{2m\omega V\varepsilon_0}\vec e\cdot\vec e'^*\\
+  \mathcal{T}_{fi}=&\frac{q^2\hbar}{2m^2\varepsilon_0\omega V}\paren{\frac{\langle a|\vec p\cdot\vec e'^*|b\rangle\langle b|\vec p\cdot\vec e|a\rangle}{E_a-E_b+\hbar\omega}+\frac{\langle a|\vec p\cdot\vec e|b\rangle\langle b|\vec p\cdot\vec e'^*|a\rangle}{E_a-E_b-\hbar\omega}}+\frac{\hbar q^2}{2m\omega V\varepsilon_0}\vec e\cdot\vec e'^*\\
+  \approx&\frac{q^2\hbar}{2m^2\varepsilon_0\omega V}\paren{\frac{\langle a|\vec p\cdot\vec e'^*|b\rangle\langle b|\vec p\cdot\vec e|a\rangle}{E_a-E_b}+\frac{\langle a|\vec p\cdot\vec e|b\rangle\langle b|\vec p\cdot\vec e'^*|a\rangle}{E_a-E_b}}+\frac{\hbar q^2}{2m\omega V\varepsilon_0}\vec e\cdot\vec e'^*\\
+  &+\frac{q^2\hbar\omega}{2m^2\varepsilon_0\omega_0^2 V}\paren{\frac{\langle a|\vec p\cdot\vec e'^*|b\rangle\langle b|\vec p\cdot\vec e|a\rangle}{E_a-E_b}+\frac{\langle a|\vec p\cdot\vec e|b\rangle\langle b|\vec p\cdot\vec e'^*|a\rangle}{E_a-E_b}}\\
+  \approx&\frac{q^2\hbar}{2m^2\varepsilon_0\omega V}\frac{\langle a|2p^2|a\rangle}{E_a-E_b}\vec e\cdot\vec e'^*+\frac{\hbar q^2}{2m\omega V\varepsilon_0}\vec e\cdot\vec e'^*\\
+  &+\frac{q^2\omega}{2\varepsilon_0\omega_0 V}\paren{\langle a|\vec d\cdot\vec e'^*|b\rangle\langle b|\vec d\cdot\vec e|a\rangle+\langle a|\vec d\cdot\vec e|b\rangle\langle b|\vec d\cdot\vec e'^*|a\rangle}\\
+  \approx&\frac{q^2\omega}{2\varepsilon_0\omega_0 V}\paren{\langle a|\vec d\cdot\vec e'^*|b\rangle\langle b|\vec d\cdot\vec e|a\rangle+\langle a|\vec d\cdot\vec e|b\rangle\langle b|\vec d\cdot\vec e'^*|a\rangle}
+}
+Thomson Scattering\\
+Using the Coulomb guage Hamiltonian
+\eqar{
+  \mathcal{T}_{fi2}=&\frac{\hbar q^2}{2m\omega V\varepsilon_0}\vec e\cdot\vec e'^*\\
+  \mathcal{T}_{fi1}=&\sum_b\frac{q^2\hbar}{2m^2\varepsilon_0\omega V}\paren{\frac{\langle a|\vec p\cdot\vec e'^*|b\rangle\langle b|\vec p\cdot\vec e|a\rangle}{E_a-E_b+\hbar\omega}+\frac{\langle a|\vec p\cdot\vec e|b\rangle\langle b|\vec p\cdot\vec e'^*|a\rangle}{E_a-E_b-\hbar\omega}}
+  \intertext{Since $E_b-E_a\ll\hbar\omega$}
+  \mathcal{T}_{fi1}\approx&\sum_b\frac{q^2\omega_0}{m^2\varepsilon_0\omega V}\paren{\frac{\langle a|\vec p\cdot\vec e|b\rangle\langle b|\vec p\cdot\vec e'^*|a\rangle}{\omega^2}}\\
+  \approx&\sum_b\frac{q^2\hbar\omega_0^2}{m^2\varepsilon_0\omega^3V}\vec e\cdot\vec e'^*\\
+  \ll&\mathcal{T}_{fi2}
+  \intertext{Therefore}
+  \mathcal{T}_{fi}\approx&\frac{\hbar q^2}{2m\omega V\varepsilon_0}\vec e\cdot\vec e'^*
 }
 \subsection{}
 
