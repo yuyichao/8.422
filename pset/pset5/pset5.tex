@@ -160,6 +160,15 @@ Using the Coulomb guage Hamiltonian
   \intertext{Therefore}
   \mathcal{T}_{fi}\approx&\frac{\hbar q^2}{2m\omega V\varepsilon_0}\vec e\cdot\vec e'^*
 }
+Using the dipole Hamiltonian
+\eqar{
+  \mathcal{T}_{fi}=&\sum_b\frac{q^2\hbar\omega}{2\varepsilon_0 V}\paren{\frac{\langle a|\vec r\cdot\vec e'^*|b\rangle\langle b|\vec r\cdot\vec e|a\rangle}{E_a-E_b+\hbar\omega}+\frac{\langle a|\vec r\cdot\vec e|b\rangle\langle b|\vec r\cdot\vec e'^*|a\rangle}{E_a-E_b-\hbar\omega}}
+  \intertext{Since $E_b-E_a\ll\hbar\omega$}
+  \mathcal{T}_{fi}\approx&\sum_b\frac{q^2\omega\omega_0}{\varepsilon_0 V}\paren{\frac{\langle a|\vec r\cdot\vec e|b\rangle\langle b|\vec r\cdot\vec e'^*|a\rangle}{\omega^2}}\\
+  =&\sum_b\frac{q^2\omega}{m^2\varepsilon_0\omega_0V}\paren{\frac{\langle a|\vec p\cdot\vec e|b\rangle\langle b|\vec p\cdot\vec e'^*|a\rangle}{\omega^2}}\\
+  =&\frac{q^2}{m^2\varepsilon_0\omega\omega_0V}\langle a|p^2|a\rangle\vec e\cdot\vec e'^*\\
+  \approx&\frac{\hbar q^2}{2m\varepsilon_0\omega V}\vec e\cdot\vec e'^*
+}
 \subsection{}
 \eqar{
   \diff{\sigma}{\Omega}=&\frac{V}{c}
