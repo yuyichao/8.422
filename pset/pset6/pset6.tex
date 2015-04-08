@@ -111,8 +111,21 @@ Recitation Section \psettitlersection
 \begin{document}
 \section{}
 \subsection{}
+For atoms that are closed enough, the interaction between them can be treated as dipole-dipole interaction (effectively integrate out the photon field). To second order of this effective Hamiltonian, the (non-degenerate) second order perturbation theory gives
+\eqar{
+  \Delta E\propto&\frac{d_a^2d_b^2}{R^6\paren{E_i^{(a)}+E_g^{(b)}-E_i^{(b)}-E_g^{(a)}}}
+}
+which scale with $R^{-6}$. The same is true for $|g_ai_b\rangle$. The perturbation theory breaks down when $E_i^{(a)}+E_g^{(b)}-E_i^{(b)}-E_g^{(a)}=0$.
 \subsection{}
+When $|g_ai_b\rangle$ and $|i_ag_b\rangle$ are degenerate, the energy shift become first order
+\eqar{
+  \Delta E\propto&\frac{d^2}{R^3}
+}
 \subsection{}
+\eqar{
+  \Gamma\propto&\omega^3d^2\\
+  \frac{\Gamma}{\Delta E}=&\omega^3
+}
 
 \section{}
 \eqar{
@@ -156,11 +169,11 @@ Recitation Section \psettitlersection
 \subsection{}
 Since the Hamiltonian does nothing to $|g\rangle$, $|g0\rangle$ will remain the same. For $|e*\rangle$, the environment will undergo Rabi flopping. Also assume $\gamma$ is real since the phase of it can be absorbed in $|1\rangle$. The evolution of state,
 \eqar{
-  |\psi\paren{t}\rangle=&a|g0\rangle+b\paren{\cos\gamma t|e0\rangle+\sin\gamma t|e1\rangle}
+  |\psi\paren{t}\rangle=&a|g0\rangle+b\paren{\cos\frac{\gamma t}{\hbar}|e0\rangle+\ui\sin\frac{\gamma t}{\hbar}|e1\rangle}
   \intertext{Atomic density matrix}
   \rho=&\begin{pmatrix}
-    \abs{a}^2&ab^*\cos\gamma t\\
-    a^*b\cos\gamma t&\abs{b}^2
+    \abs{a}^2&ab^*\cos\dfrac{\gamma t}{\hbar}\\
+    a^*b\cos\dfrac{\gamma t}{\hbar}&\abs{b}^2
   \end{pmatrix}
 }
 \subsection{}
