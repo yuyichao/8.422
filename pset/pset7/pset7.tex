@@ -111,7 +111,43 @@ Recitation Section \psettitlersection
 \begin{document}
 \section{}
 \subsection{}
+(Shouldn't the condition be $\Omega\ll\delta$ instead of $\Omega\ll\Gamma$?)\\
+Let $\delta=\paren{\omega_0-\omega_L}$
+\eqar{
+  \rho_{ee}=&\rho'_{ee}\ue^{-\Gamma t}\\
+  \rho_{ge}=&\rho'_{ge}\ue^{-\Gamma t / 2+\ui\delta t}\\
+  \dot\rho'_{ee}=&\ui\frac{\Omega\ue^{\Gamma t/2}}{2}\paren{{\rho'_{ge}}^*\ue^{-\ui\delta t}-\rho'_{ge}\ue^{\ui\delta t}}\\
+  \dot\rho'_{ge}=&-\ui\frac{\Omega\ue^{\Gamma t/2}}{2}\paren{2\rho'_{ee}\ue^{-\Gamma t}-1}\ue^{-\ui\delta t}
+  \intertext{$0$th order in $\Omega$}
+  \rho'_{ee0}=&0\\
+  \rho'_{ge0}=&0
+  \intertext{$1$st order in $\Omega$}
+  \rho'_{ee1}=&0\\
+  \dot\rho'_{ge1}=&\ui\frac{\Omega}{2}\ue^{\Gamma t/2-\ui\delta t}\\
+  \rho'_{ge1}=&\ui\frac{\Omega}{2\paren{\Gamma/2-\ui\delta}}\paren{\ue^{\Gamma t/2-\ui\delta t}-1}\\
+  {\rho'_{ge1}}^*=&-\ui\frac{\Omega}{2\paren{\Gamma/2+\ui\delta}}\paren{\ue^{\Gamma t/2+\ui\delta t}-1}
+  \intertext{$2$nd order in $\Omega$}
+  \dot\rho'_{ee2}=&\ui\frac{\Omega\ue^{\Gamma t/2}}{2}\paren{{\rho'_{ge1}}^*\ue^{-\ui\delta t}-\rho'_{ge1}\ue^{\ui\delta t}}\\
+  =&\ui\frac{\Omega\ue^{\Gamma t/2}}{2}\paren{-\ui\frac{\Omega}{2\paren{\Gamma/2+\ui\delta}}\paren{\ue^{\Gamma t/2+\ui\delta t}-1}\ue^{-\ui\delta t}-\ui\frac{\Omega}{2\paren{\Gamma/2-\ui\delta}}\paren{\ue^{\Gamma t/2-\ui\delta t}-1}\ue^{\ui\delta t}}\\
+  =&\frac{\Omega^2}{4}\paren{\frac{1}{\Gamma/2+\ui\delta}\paren{\ue^{\Gamma t}-\ue^{\Gamma t/2-\ui\delta t}}+\frac{1}{\Gamma/2-\ui\delta}\paren{\ue^{\Gamma t}-\ue^{\Gamma t/2+\ui\delta t}}}\\
+  \rho'_{ee2}=&C_0+\frac{\Omega^2}{4}\paren{\frac{1}{\Gamma/2+\ui\delta}\paren{\frac{1}{\Gamma}\ue^{\Gamma t}-\frac{1}{\Gamma/2-\ui\delta}\ue^{\Gamma t/2-\ui\delta t}}+\frac{1}{\Gamma/2-\ui\delta}\paren{\frac{1}{\Gamma}\ue^{\Gamma t}-\frac{1}{\Gamma/2+\ui\delta}\ue^{\Gamma t/2+\ui\delta t}}}\\
+  =&C_0+\frac{\Omega^2}{\Gamma^2+4\delta^2}\paren{\frac{\Gamma/2-\ui\delta}{\Gamma}\ue^{\Gamma t}-\ue^{\Gamma t/2-\ui\delta t}+\frac{\Gamma/2+\ui\delta}{\Gamma}\ue^{\Gamma t}-\ue^{\Gamma t/2+\ui\delta t}}\\
+  =&C_0+\frac{\Omega^2}{\Gamma^2+4\delta^2}\paren{\ue^{\Gamma t}-2\cos\paren{\delta t}\ue^{\Gamma t/2}}
+  \intertext{Since $\rho'(0)=0$}
+  \rho'_{ee2}=&\frac{\Omega^2}{\Gamma^2+4\delta^2}\paren{1+\ue^{\Gamma t}-2\cos\paren{\delta t}\ue^{\Gamma t/2}}
+  \intertext{Therefore, to the second order in $\Omega$}
+  \rho_{ee}=&\frac{\Omega^2}{\Gamma^2+4\delta^2}\paren{1+\ue^{-\Gamma t}-2\cos\paren{\delta t}\ue^{-\Gamma t/2}}
+}
+In the limit of $\Gamma\rightarrow0$, this turns into a Rabi flopping at the frequency of the detuning.
 \subsection{}
+Expand the solution to second order in $t$
+\eqar{
+  \rho_{ee}=&\frac{\Omega^2}{\Gamma^2+4\delta^2}\paren{1+1-\Gamma t+\frac{\Gamma^2t^2}{2}-2\paren{1-\frac{\delta^2t^2}{2}}\paren{1-\frac{\Gamma t}{2}+\frac{\Gamma^2t^2}{8}}}\\
+  =&\frac{\Omega^2}{\Gamma^2+4\delta^2}\paren{1+1-\Gamma t+\frac{\Gamma^2t^2}{2}-2+\delta^2t^2+\Gamma t-\frac{\Gamma^2t^2}{4}}\\
+  =&\frac{\Omega^2}{\Gamma^2+4\delta^2}\paren{\frac{\Gamma^2t^2}{4}+\delta^2t^2}\\
+  =&\frac{\Omega^2t^2}{4}
+}
+When the pulse is very short, the decay haven't started yet and the atom also doesn't have enough time to figure out that the frequency is wrong.
 
 \section{}
 \subsection{}
