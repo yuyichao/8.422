@@ -3,8 +3,8 @@
 \newcommand{\course}[1]{\def\psettitlecourse{#1}}
 \newcommand{\rsection}[1]{\def\psettitlersection{#1}}
 \newcommand{\psetnum}[1]{\def\psettitlepsetnum{#1}}
-%\usepackage[journal=rsc]{chemstyle}
-%\usepackage{mhchem}
+% \usepackage[journal=rsc]{chemstyle}
+% \usepackage{mhchem}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -12,8 +12,9 @@
 \usepackage{bbm}
 \usepackage{amscd}
 \usepackage{picinpar}
-\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
 \usepackage{indentfirst}
 \usepackage{wrapfig}
 \usepackage{units}
@@ -21,6 +22,10 @@
 \usepackage[utf8x]{inputenc}
 % \usepackage{feyn}
 \usepackage{feynmp}
+\usepackage{xkeyval}
+\usepackage{xargs}
+\usepackage{verbatim}
+\usepackage{pgfplots}
 \usetikzlibrary{
   arrows,
   calc,
@@ -74,12 +79,12 @@
 \usepackage{fancyhdr}
 \usepackage{multirow}
 \usepackage{fontenc}
-%\usepackage{tipa}
+% \usepackage{tipa}
 \usepackage{ulem}
 \usepackage{color}
 \usepackage{cancel}
 \newcommand{\hcancel}[2][black]{\setbox0=\hbox{#2}%
-\rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2}
+  \rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2}
 \pagestyle{fancy}
 \setlength{\headheight}{67pt}
 \fancyhead{}
@@ -87,16 +92,110 @@
 \fancyfoot[C]{\thepage}
 \fancyhead[R]
 {
-\psettitlename \\
-\psettitlecourse{} Problem Set \psettitlepsetnum \\
-\ifx\psettitlersection\empty
-\else
-Recitation Section \psettitlersection
-\fi
+  \psettitlename \\
+  \psettitlecourse{} Problem Set \psettitlepsetnum \\
+  \ifx\psettitlersection\empty
+  \else
+  Recitation Section \psettitlersection
+  \fi
 }
 \renewcommand{\footruleskip}{0pt}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
+
+\newcommand\pgfmathsinandcos[3]{%
+  \pgfmathsetmacro#1{sin(#3)}%
+  \pgfmathsetmacro#2{cos(#3)}%
+}
+\newcommand\LongitudePlane[3][current plane]{%
+  \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+  \pgfmathsinandcos\sint\cost{#3} % azimuth
+  \tikzset{#1/.estyle={cm={\cost,\sint*\sinEl,0,\cosEl,(0,0)}}}
+}
+\newcommand\LatitudePlane[3][current plane]{%
+  \pgfmathsinandcos\sinEl\cosEl{#2} % elevation
+  \pgfmathsinandcos\sint\cost{#3} % latitude
+  \pgfmathsetmacro\yshift{\cosEl*\sint}
+  \tikzset{#1/.estyle={cm={\cost,0,0,\cost*\sinEl,(0,\yshift)}}} %
+}
+\newcommand\DrawLongitudeCircle[2][1]{
+  \LongitudePlane{\angEl}{#2}
+  \tikzset{current plane/.prefix style={scale=#1}}
+  % angle of "visibility"
+  \pgfmathsetmacro\angVis{atan(sin(#2)*cos(\angEl)/sin(\angEl))} %
+  \draw[current plane] (\angVis:1) arc (\angVis:\angVis+180:1);
+  \draw[current plane,dashed] (\angVis-180:1) arc (\angVis-180:\angVis:1);
+}
+\newcommand\DrawLatitudeCircleArrow[2][1]{
+  \LatitudePlane{\angEl}{#2}
+  \tikzset{current plane/.prefix style={scale=#1}}
+  \pgfmathsetmacro\sinVis{sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+  % angle of "visibility"
+  \pgfmathsetmacro\angVis{asin(min(1,max(\sinVis,-1)))}
+  \draw[current plane,decoration={markings, mark=at position 0.6 with {\arrow{<}}},postaction={decorate},line width=.6mm] (\angVis:1) arc (\angVis:-\angVis-180:1);
+  \draw[current plane,dashed,line width=.6mm] (180-\angVis:1) arc (180-\angVis:\angVis:1);
+}
+\newcommand\DrawLatitudeCircle[2][1]{
+  \LatitudePlane{\angEl}{#2}
+  \tikzset{current plane/.prefix style={scale=#1}}
+  \pgfmathsetmacro\sinVis{sin(#2)/cos(#2)*sin(\angEl)/cos(\angEl)}
+  % angle of "visibility"
+  \pgfmathsetmacro\angVis{asin(min(1,max(\sinVis,-1)))}
+  \draw[current plane] (\angVis:1) arc (\angVis:-\angVis-180:1);
+  \draw[current plane,dashed] (180-\angVis:1) arc (180-\angVis:\angVis:1);
+}
+\newcommand\coil[1]{
+  {\rh * cos(\t * pi r)}, {\apart * (2 * #1 + \t) + \rv * sin(\t * pi r)}
+}
+\makeatletter
+\define@key{DrawFromCenter}{style}[{->}]{
+  \tikzset{DrawFromCenterPlane/.style={#1}}
+}
+\define@key{DrawFromCenter}{r}[1]{
+  \def\@R{#1}
+}
+\define@key{DrawFromCenter}{center}[(0, 0)]{
+  \def\@Center{#1}
+}
+\define@key{DrawFromCenter}{theta}[0]{
+  \def\@Theta{#1}
+}
+\define@key{DrawFromCenter}{phi}[0]{
+  \def\@Phi{#1}
+}
+\presetkeys{DrawFromCenter}{style, r, center, theta, phi}{}
+\newcommand*\DrawFromCenter[1][]{
+  \setkeys{DrawFromCenter}{#1}{
+    \pgfmathsinandcos\sint\cost{\@Theta}
+    \pgfmathsinandcos\sinp\cosp{\@Phi}
+    \pgfmathsinandcos\sinA\cosA{\angEl}
+    \pgfmathsetmacro\DX{\@R*\cost*\cosp}
+    \pgfmathsetmacro\DY{\@R*(\cost*\sinp*\sinA+\sint*\cosA)}
+    \draw[DrawFromCenterPlane] \@Center -- ++(\DX, \DY);
+  }
+}
+\newcommand*\DrawFromCenterText[2][]{
+  \setkeys{DrawFromCenter}{#1}{
+    \pgfmathsinandcos\sint\cost{\@Theta}
+    \pgfmathsinandcos\sinp\cosp{\@Phi}
+    \pgfmathsinandcos\sinA\cosA{\angEl}
+    \pgfmathsetmacro\DX{\@R*\cost*\cosp}
+    \pgfmathsetmacro\DY{\@R*(\cost*\sinp*\sinA+\sint*\cosA)}
+    \draw[DrawFromCenterPlane] \@Center -- ++(\DX, \DY) node {#2};
+  }
+}
+\makeatother
+\tikzstyle{snakearrow} = [decorate, decoration={pre length=0.2cm,
+  post length=0.2cm, snake, amplitude=.4mm,
+  segment length=2mm},thick, ->]
+%% document-wide tikz options and styles
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
 \addtolength{\hoffset}{-1.3cm}
 \addtolength{\voffset}{-2cm}
 \addtolength{\textwidth}{3cm}
@@ -108,6 +207,7 @@ Recitation Section \psettitlersection
 \parindent=0pt
 \psetnum{7}
 \input{../head}
+\usepackage{pst-solides3d}
 \begin{document}
 \section{}
 \subsection{}
@@ -151,17 +251,196 @@ When the pulse is very short, the decay haven't started yet and the atom also do
 
 \section{}
 \subsection{}
+In the $|0g\rangle$ subspace, the Hamiltonian is $\dfrac{\hbar}{2}\paren{\delta-2\omega_0}$ and in the $|1g\rangle$, $|0e\rangle$ subspace, the Hamiltonian is $\dfrac{\hbar}{2}\paren{\Omega_1\sigma_x-\delta\sigma_z}$
+\eqar{
+  \ue^{-\ui Ht/\hbar}=&\ue^{\ui\paren{\delta/2+\omega_0}t}\oplus\ue^{-\ui\paren{\Omega_1\sigma_x-\delta\sigma_z}t/2}\\
+  =&\ue^{-\ui\paren{\delta/2+\omega_0}t}\oplus
+  \paren{\cos\frac{\Omega t}{2}-\ui\paren{\frac{\Omega_1}{\Omega}\sigma_x-\frac{\delta}{\Omega}\sigma_z}\sin\frac{\Omega t}{2}}\\
+  =&\ue^{\ui\paren{\delta/2+\omega_0}t}|0g\rangle\langle0g|+\paren{\cos\frac{\Omega t}{2}+\ui\frac{\delta}{\Omega}\sin\frac{\Omega t}{2}}|0e\rangle\langle0e|+\paren{\cos\frac{\Omega t}{2}-\ui\frac{\delta}{\Omega}\sin\frac{\Omega t}{2}}|1g\rangle\langle1g|\\
+  &-\ui\frac{\Omega_1}{\Omega}\sin\frac{\Omega t}{2}\paren{|0e\rangle\langle1g|+|1g\rangle\langle0e|}
+}
 \subsection{}
+Since the system is either in $|0e\rangle$ or $|1g\rangle$ the atom is in state $e$ if there's no photon in the cavity and $g$ if there's one photon in the cavity.
 \subsection{}
+In the same subspace witht the first problem,
+\eqar{
+  \rho_0=&\begin{pmatrix}
+    \rho_{gg}&\rho_{ge}\\
+    \rho_{eg}&\rho_{ee}\\
+    &&0
+  \end{pmatrix}\\
+  U=&\begin{pmatrix}
+    \ue^{\ui\paren{\delta/2+\omega_0}t}&&\\
+    &\cos\dfrac{\Omega t}{2}+\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}&-\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}\\
+    &-\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}&\cos\dfrac{\Omega t}{2}-\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}
+  \end{pmatrix}\\
+  \rho_t=&U^\dagger\rho_0U\\
+  =&\begin{pmatrix}
+    \ue^{\ui\paren{\delta/2+\omega_0}t}&&\\
+    &\cos\dfrac{\Omega t}{2}+\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}&-\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}\\
+    &-\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}&\cos\dfrac{\Omega t}{2}-\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}
+  \end{pmatrix}\begin{pmatrix}
+    \rho_{gg}&\rho_{ge}\\
+    \rho_{eg}&\rho_{ee}\\
+    &&0
+  \end{pmatrix}\\
+  &\begin{pmatrix}
+    \ue^{-\ui\paren{\delta/2+\omega_0}t}&&\\
+    &\cos\dfrac{\Omega t}{2}-\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}&+\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}\\
+    &\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}&\cos\dfrac{\Omega t}{2}+\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}
+  \end{pmatrix}\\
+  =&\begin{pmatrix}
+    \rho_{gg}\ue^{\ui\paren{\delta/2+\omega_0}t}&\rho_{ge}\ue^{\ui\paren{\delta/2+\omega_0}t}&\\
+    \rho_{eg}\paren{\cos\dfrac{\Omega t}{2}+\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}}&\rho_{ee}\paren{\cos\dfrac{\Omega t}{2}+\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}}\\
+    -\rho_{eg}\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}&-\rho_{ee}\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}&0
+  \end{pmatrix}\\
+  &\begin{pmatrix}
+    \ue^{-\ui\paren{\delta/2+\omega_0}t}&&\\
+    &\cos\dfrac{\Omega t}{2}-\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}&+\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}\\
+    &\ui\dfrac{\Omega_1}{\Omega}\sin\dfrac{\Omega t}{2}&\cos\dfrac{\Omega t}{2}+\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}
+  \end{pmatrix}
+  \intertext{Let $\rho_{ge}'=\rho_{ge}\ue^{\ui\paren{\delta/2+\omega_0}t}$ and $\rho_{eg}'=\rho_{eg}\ue^{-\ui\paren{\delta/2+\omega_0}t}$}
+  \rho=&\begin{pmatrix}
+    \rho_{gg}&\rho'_{ge}\paren{\cos\frac{\Omega t}{2}-\ui\frac{\delta}{\Omega}\sin\frac{\Omega t}{2}}&\rho'_{ge}\ui\frac{\Omega_1}{\Omega}\sin\frac{\Omega t}{2}\\
+    \rho'_{eg}\paren{\cos\frac{\Omega t}{2}+\ui\frac{\delta}{\Omega}\sin\frac{\Omega t}{2}}&\rho_{ee}\paren{\cos^2\frac{\Omega t}{2}+\frac{\delta^2}{\Omega^2}\sin^2\frac{\Omega t}{2}}&\rho_{ee}\paren{\cos\frac{\Omega t}{2}+\ui\frac{\delta}{\Omega}\sin\frac{\Omega t}{2}}\ui\frac{\Omega_1}{\Omega}\sin\frac{\Omega t}{2}\\
+    -\rho'_{eg}\ui\frac{\Omega_1}{\Omega}\sin\frac{\Omega t}{2}&-\rho_{ee}\ui\frac{\Omega_1}{\Omega}\sin\frac{\Omega t}{2}\paren{\cos\frac{\Omega t}{2}-\ui\frac{\delta}{\Omega}\sin\frac{\Omega t}{2}}&\rho_{ee}\frac{\Omega_1^2}{\Omega^2}\sin^2\frac{\Omega t}{2}
+  \end{pmatrix}
+}
+The density matrix of the atom is
+\eqar{
+  \rho_{atom}=&\begin{pmatrix}
+    \rho_{gg}+\rho_{ee}\dfrac{\Omega_1^2}{\Omega^2}\sin^2\dfrac{\Omega t}{2}&\rho_{ge}\ue^{\ui\paren{\delta/2+\omega_0}t}\paren{\cos\dfrac{\Omega t}{2}-\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}}\\
+    \rho_{eg}\ue^{-\ui\paren{\delta/2+\omega_0}t}\paren{\cos\dfrac{\Omega t}{2}+\ui\dfrac{\delta}{\Omega}\sin\dfrac{\Omega t}{2}}&\rho_{ee}\paren{\cos^2\dfrac{\Omega t}{2}+\dfrac{\delta^2}{\Omega^2}\sin^2\dfrac{\Omega t}{2}}
+  \end{pmatrix}
+}
 \subsection{}
+\eqar{
+  \rho_{atom}\paren{\Delta t}\approx&\begin{pmatrix}
+    \rho_{gg}+\rho_{ee}\dfrac{\Omega_1^2\Delta t^2}{4}&\rho_{ge}\ue^{\ui\paren{\delta/2+\omega_0}\Delta t}\paren{1-\dfrac{\Omega^2\Delta t^2}{8}-\ui\dfrac{\delta \Delta t}{2}}\\
+    \rho_{eg}\ue^{-\ui\paren{\delta/2+\omega_0}\Delta t}\paren{1-\dfrac{\Omega^2\Delta t^2}{8}+\ui\dfrac{\delta \Delta t}{2}}&\rho_{ee}\paren{1-\dfrac{\Omega_1^2\Delta t^2}{4}}
+  \end{pmatrix}\\
+  \rho'_{atom}\paren{t}\approx&\begin{pmatrix}
+    1-\rho_{ee}'\paren{t}&\rho_{ge}\ue^{\ui\paren{\delta/2+\omega_0}t}\paren{1-\dfrac{\Omega^2\Delta t^2}{8}-\ui\dfrac{\delta \Delta t}{2}}^{t/\Delta t}\\
+    \rho_{eg}\ue^{-\ui\paren{\delta/2+\omega_0}t}\paren{1-\dfrac{\Omega^2\Delta t^2}{8}+\ui\dfrac{\delta \Delta t}{2}}^{t/\Delta t}&\rho_{ee}\paren{1-\dfrac{\Omega_1^2\Delta t^2}{4}}^{t/\Delta t}
+  \end{pmatrix}\\
+  \approx&\begin{pmatrix}
+    1-\rho_{ee}\exp\paren{-\dfrac{\Omega_1^2\Delta t t}{4}}&\rho_{ge}\ue^{\ui\omega_0t}\exp\paren{-\dfrac{\Omega_1^2\Delta t t}{8}}\\
+    \rho_{eg}\ue^{-\ui\omega_0t}\exp\paren{-\dfrac{\Omega_1^2\Delta t t}{8}}&\rho_{ee}\exp\paren{-\dfrac{\Omega_1^2\Delta t t}{4}}
+  \end{pmatrix}\\
+  =&\begin{pmatrix}
+    1-\rho_{ee}\ue^{-\Gamma t}&\rho_{ge}\ue^{\ui\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}\\
+    \rho_{eg}\ue^{-\ui\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}&\rho_{ee}\ue^{-\Gamma t}
+  \end{pmatrix}
+}
+where $\Gamma=\dfrac{\Omega_1^2\Delta t}{4}$
 \subsection{}
+On the Bloch sphere
+\eqar{
+  \vec r=&\begin{pmatrix}
+    2\rho_{ge}\cos{\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}\\
+    -2\rho_{ge}\sin{\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}\\
+    2\rho_{ee}\ue^{-\Gamma t}-1
+  \end{pmatrix}
+  \intertext{For $\paren{|e\rangle+|g\rangle}/\sqrt2$}
+  \rho_{ee}=&\frac12\\
+  \rho_{ge}=&\frac12\\
+  \vec r=&\begin{pmatrix}
+    \cos{\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}\\
+    -\sin{\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}\\
+    \ue^{-\Gamma t}-1
+  \end{pmatrix}
+  \intertext{For $\paren{|e\rangle-|g\rangle}/\sqrt2$}
+  \rho_{ee}=&\frac12\\
+  \rho_{ge}=&-\frac12\\
+  \vec r=&\begin{pmatrix}
+    -\cos{\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}\\
+    \sin{\omega_0t}\exp\paren{-\dfrac{\Gamma t}{2}}\\
+    \ue^{-\Gamma t}-1
+  \end{pmatrix}
+  \intertext{For $|e\rangle$}
+  \rho_{ee}=&1\\
+  \rho_{ge}=&0\\
+  \vec r=&\begin{pmatrix}
+    0\\
+    0\\
+    2\ue^{-\Gamma t}-1
+  \end{pmatrix}
+}
+Plotting the first and the second one, (the third one is just a line connecting the north and south pole)
+\begin{center}
+  \begin{pspicture}(-6,-6)(6,6)
+    \psset{viewpoint=50 20 20 rtp2xyz,
+      Decran=50,lightsrc=50 20 20,lightintensity=1}
+    \psSolid[
+    object=sphere,
+    r=5,fillcolor=black!0,
+    grid,
+    incolor=black!1,
+    hollow=true,
+    ngrid=45 45]
+
+    \axesIIID[linewidth=1pt,linecolor=gray,arrowsize=5pt,
+    arrowinset=0,axisnames={{},{},{}},
+    labelsep=10pt]
+    (5,5,5)(6,6,6)
+    \axesIIID[linewidth=1pt,linecolor=gray,arrowsize=0,
+    arrowinset=0,axisnames={{},{},{}},
+    labelsep=10pt]
+    (-5,-5,-5)(-6,-6,-6)
+    \defFunction[algebraic]{f1}(t){5*cos(4*t)*e^(-t/2)}{-5*sin(4*t)*e^(-t/2)}{5*e^(-t)-5}
+    \psSolid[object=courbe, r=0,
+    range=0 10,
+    linecolor=blue,linewidth=0.03,
+    resolution=1000,
+    function=f1]%
+    \defFunction[algebraic]{f2}(t){-5*cos(4*t)*e^(-t/2)}{5*sin(4*t)*e^(-t/2)}{5*e^(-t)-5}
+    \psSolid[object=courbe, r=0,
+    range=0 10,
+    linecolor=red,linewidth=0.03,
+    resolution=1000,
+    function=f2]%
+  \end{pspicture}
+\end{center}
+
 \subsection{}
+In the limit of $\Delta t\rightarrow 0$ the atom haven't got enough time ($\delta^{-1}$) to figure out that it is actually detuned from the cavity resonance yet.
 
 \section{}
 \subsection{}
+\eqar{
+  \diff{}{t}|\psi\rangle=&\paren{\dot a+\ui\omega_1a}\ue^{\ui\omega_1t}|g\rangle+\paren{\dot b+\ui\omega_2b}\ue^{\ui\omega_2t}|e\rangle\\
+  \frac{H}{\hbar}|\psi\rangle=&-a\frac{\omega_0}{2}\ue^{\ui\omega_1t}|g\rangle+b\frac{\omega_0}{2}\ue^{\ui\omega_2t}|e\rangle+\frac{\Omega_1}{2}\paren{\ue^{\ui\omega_Lt}b\ue^{\ui\omega_2t}|g\rangle+\ue^{-\ui\omega_Lt}a\ue^{\ui\omega_1t}|e\rangle}
+  \intertext{If $\ue^{-\ui\omega_Lt}\ue^{\ui\omega_1t}=\ue^{\ui\omega_2t}$ (and for convinience having $\omega_1+\omega_2=0$)}
+  \diff{}{t}|\psi\rangle=&\paren{\dot a+\ui\frac{\omega_L}{2}a}\ue^{\ui\omega_Lt/2}|g\rangle+\paren{\dot b-\ui\frac{\omega_L}{2}b}\ue^{-\ui\omega_Lt/2}|e\rangle\\
+  \frac{H}{\hbar}|\psi\rangle=&-a\frac{\omega_0}{2}\ue^{\ui\omega_Lt/2}|g\rangle+b\frac{\omega_0}{2}\ue^{-\ui\omega_Lt/2}|e\rangle+\frac{\Omega_1}{2}\paren{b\ue^{\ui\omega_Lt/2}|g\rangle+a\ue^{-\ui\omega_Lt/2}|e\rangle}\\
+  =&\frac{b\Omega_1-a\omega_0}{2}\ue^{\ui\omega_Lt/2}|g\rangle+\frac{a\Omega_1+b\omega_0}{2}\ue^{-\ui\omega_Lt/2}|e\rangle
+  \intertext{Since $\ui\ddiff{}{t}|\psi\rangle=\dfrac{H}{\hbar}|\psi\rangle$}
+  \ui\dot a=&\frac{b\Omega_1+a\delta}{2}\\
+  \ui\dot b=&\frac{a\Omega_1-b\delta}{2}
+}
 \subsection{}
+\eqar{
+  H'=&\frac{\hbar}{2}\paren{\delta\sigma_z+\Omega_1\sigma_x}
+}
 \subsection{}
+\eqar{
+  H'=&\frac{\hbar\Omega}{2}\paren{\cos2\theta\sigma_z+\sin2\theta\sigma_x}
+}
+where $\sin2\theta=\dfrac{\Omega_1}{\Omega}$ and $\cos2\theta=\dfrac{\delta}{\Omega}$
 \subsection{}
+Since the Hamiltonian is proportional to $\vec r\cdot\vec\sigma$ where $\vec r=\cos2\theta\hat z+\sin2\theta\hat x$, the eigenvalues are $\pm\dfrac{\hbar\Omega}{2}$ with eigenvectors
+\eqar{
+  |+\rangle=&\cos\theta|e'\rangle+\sin\theta|g'\rangle\\
+  |-\rangle=&-\sin\theta|e'\rangle+\cos\theta|g'\rangle\\
+  H|+\rangle=&\frac{\hbar\Omega}{2}\paren{\cos2\theta\cos\theta|e'\rangle-\cos2\theta\sin\theta|g'\rangle+\sin2\theta\cos\theta|g'\rangle+\sin2\theta\sin\theta|e'\rangle}\\
+  =&\frac{\hbar\Omega}{2}|+\rangle\\
+  H|-\rangle=&-\frac{\hbar\Omega}{2}|-\rangle
+}
+
 \subsection{}
+The generic solution is
+\eqar{
+  |\psi\rangle=&\paren{a\ue^{-\ui\Omega t/2}\cos\theta-b\ue^{\ui\Omega t/2}\sin\theta}\ue^{-\ui\omega_Lt/2}|e\rangle+\paren{a\ue^{-\ui\Omega t/2}\sin\theta+b\ue^{\ui\Omega t/2}\cos\theta}\ue^{\ui\omega_Lt/2}|g\rangle
+}
 
 \end{document}
