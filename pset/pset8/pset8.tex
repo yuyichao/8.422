@@ -210,9 +210,52 @@
 \begin{document}
 \section{Classical Model of the Light Force}
 \subsection{Time averaged force}
+\eqar{
+  \angl{\vec F}=&\angl{\paren{\hat p\cdot\hat\epsilon}\paren{u\cos\paren{\omega t+\theta}-v\sin\paren{\omega t+\theta}}\nabla\paren{E_0\cos\paren{\omega t+\theta}}}\\
+  =&\angl{\paren{\hat p\cdot\hat\epsilon}\paren{u\cos\paren{\omega t+\theta}-v\sin\paren{\omega t+\theta}}\paren{\cos\paren{\omega t+\theta}\nabla E_0-E_0\sin\paren{\omega t+\theta}\nabla\theta}}\\
+  =&\frac12\paren{\hat p\cdot\hat\epsilon}\paren{u\nabla E_0+vE_0\nabla\theta}
+}
 \subsection{The potential picture}
+\eqar{
+  \angl{U}=&-\angl{\vec p\cdot\vec E}\\
+  =&-\angl{\paren{\hat p\cdot\hat\epsilon}\paren{u\cos\paren{\omega t+\theta}-v\sin\paren{\omega t+\theta}}E_0\cos\paren{\omega t+\theta}}\\
+  =&-\frac12\paren{\hat p\cdot\hat\epsilon}uE_0\\
+  \angl{\vec F}=&\frac12\paren{\hat p\cdot\hat\epsilon}u\nabla E_0
+}
 \subsection{Dipole moment of electron}
+Let $\vec r=\hat\epsilon \tilde r_0\ue^{\ui\omega t}$
+\eqar{
+  &-e\hat\epsilon E_0\ue^{\ui\omega t+\ui\theta}\\
+  =&\paren{-m\omega^2+\ui\omega\gamma+m\omega_0^2}\hat\epsilon\tilde r_0\ue^{\ui\omega t}\\
+  \tilde r_0=&\frac{e E_0\ue^{\ui\theta}}{m\omega^2-\ui\omega\gamma-m\omega_0^2}\\
+  \tilde{\vec p}=&-\hat\epsilon\ue^{\ui\omega t}\frac{e^2E_0\ue^{\ui\theta}}{m\omega^2-\ui\omega\gamma-m\omega_0^2}
+  \intertext{Real part}
+  \vec p=&-\hat\epsilon\Re\paren{\ue^{\ui\omega t+\ui\theta}\frac{e^2E_0}{m\omega^2-\ui\omega\gamma-m\omega_0^2}}\\
+  =&-\hat\epsilon\paren{
+    \cos\paren{\omega t+\theta}\Re\paren{\frac{e^2E_0}{m\omega^2-\ui\omega\gamma-m\omega_0^2}}
+    -\sin\paren{\omega t+\theta}\Im\paren{\frac{e^2E_0}{m\omega^2-\ui\omega\gamma-m\omega_0^2}}
+  }
+  \intertext{Where}
+  &\frac{e^2E_0}{m\omega^2-\ui\omega\gamma-m\omega_0^2}\\
+  =&e^2E_0\frac{1}{m\paren{\omega^2-\omega_0^2}-\ui\omega\gamma}\\
+  \approx&\frac{e^2E_0}{m\omega_0}\frac{1}{2\delta-\ui\Gamma}\\
+  =&\frac{e^2E_0}{m\omega_0}\frac{2\delta+\ui\Gamma}{4\delta^2+\Gamma^2}
+  \intertext{Compare to the definition of $u$ and $v$}
+  u=&-\Re\paren{\frac{e^2E_0}{m\omega^2-\ui\omega\gamma-m\omega_0^2}}\\
+  =&-\frac{e^2E_0}{m\omega_0}\frac{2\delta}{4\delta^2+\Gamma^2}\\
+  v=&-\Im\paren{\frac{e^2E_0}{m\omega^2-\ui\omega\gamma-m\omega_0^2}}\\
+  =&-\frac{e^2E_0}{m\omega_0}\frac{\Gamma}{4\delta^2+\Gamma^2}
+  \intertext{Force}
+  \angl{\vec F}=&-\frac{e^2}{2m\omega_0}\frac{2E_0\nabla E_0\delta+\Gamma E_0^2\nabla\theta}{4\delta^2+\Gamma^2}\\
+  =&-\frac{e^2}{2m\omega_0}\frac{\delta\nabla E_0^2+\Gamma E_0^2\nabla\theta}{4\delta^2+\Gamma^2}
+}
+
 \subsection{Force on a two-level atom}
+Since $\omega_R\propto E_0$
+\eqar{
+  \angl{\vec F}\propto&-\frac{\delta\nabla \omega_R^2+\Gamma \omega_R^2\nabla\theta}{4\delta^2+\Gamma^2}\\
+  \propto&F_{quantum}
+}
 
 \section{Master equation for a damped optical cavity}
 \subsection{}
