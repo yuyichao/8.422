@@ -259,7 +259,37 @@ Since $\omega_R\propto E_0$
 
 \section{Master equation for a damped optical cavity}
 \subsection{}
+\eqar{
+  \langle\tilde\psi_1|\tilde\psi_1\rangle=&\Gamma\ud t\langle\psi|a^\dagger a|\psi\rangle\\
+  =&\ud p
+  \intertext{Since the imaginary and real part of $H$ commute}
+  \langle\tilde\psi_0|\tilde\psi_0\rangle=&\langle\psi|\ue^{\ui H^\dagger\ud t/\hbar}\ue^{-\ui H\ud t/\hbar}|\psi\rangle\\
+  =&\langle\psi|\ue^{-\Gamma \ud t a^\dagger a}|\psi\rangle\\
+  =&\exp\paren{-\Gamma \ud t \langle\psi|a^\dagger a|\psi\rangle}\\
+  =&\ue^{-\ud p}\\
+  =&1-\ud p
+}
 \subsection{}
+\eqar{
+  \rho+\ud\rho=&|\tilde\psi_1\rangle\langle\tilde\psi_1|+|\tilde\psi_0\rangle\langle\tilde\psi_0|\\
+  =&\Gamma\ud ta|\psi\rangle\langle\psi|a^\dagger+\paren{1-\frac{\ui H^\dagger\ud t}{\hbar}}|\psi\rangle\langle\psi|\paren{1+\frac{\ui H\ud t}{\hbar}}\\
+  =&\rho+\Gamma\ud ta\rho a^\dagger+\rho\frac{\ui H^\dagger\ud t}{\hbar}-\frac{\ui H\ud t}{\hbar}\rho\\
+  =&\rho+\Gamma\ud ta\rho a^\dagger
+  -\frac{\ui\ud t}{\hbar}\sqr{H_0, \rho}
+  -\ud t\frac{\Gamma}{2}\rho a^\dagger a-\ud t\frac{\Gamma}{2}a^\dagger a\rho
+}
 \subsection{}
+\eqar{
+  \diff{\rho}{t}=&\Gamma a\rho a^\dagger
+  -\frac{\ui}{\hbar}\sqr{H_0, \rho}
+  -\frac{\Gamma}{2}\rho a^\dagger a-\frac{\Gamma}{2}a^\dagger a\rho\\
+  =&-\frac{\ui}{\hbar}\sqr{H_0, \rho}
+  -\frac{1}{2}\paren{\Gamma\rho a^\dagger a-2\Gamma a\rho a^\dagger
+    +\Gamma a^\dagger a\rho}\\
+  =&-\frac{\ui}{\hbar}\sqr{H_0, \rho}
+  -\frac{1}{2}\paren{\rho C^\dagger C-2C\rho C^\dagger
+    +C^\dagger C\rho}
+}
+where $C=\sqrt\Gamma a$
 
 \end{document}
