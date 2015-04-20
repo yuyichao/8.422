@@ -222,6 +222,8 @@
   =&-\frac12\paren{\hat p\cdot\hat\epsilon}uE_0\\
   \angl{\vec F}=&\frac12\paren{\hat p\cdot\hat\epsilon}u\nabla E_0
 }
+The potential picture includes an extra term from the change of dipole moment when the dipole moves.
+
 \subsection{Dipole moment of electron}
 Let $\vec r=\hat\epsilon \tilde r_0\ue^{\ui\omega t}$
 \eqar{
@@ -268,7 +270,12 @@ Since $\omega_R\propto E_0$
   =&\exp\paren{-\Gamma \ud t \langle\psi|a^\dagger a|\psi\rangle}\\
   =&\ue^{-\ud p}\\
   =&1-\ud p
+  \intertext{Therefore}
+  |\tilde\psi_1\rangle=&\frac{|\tilde\psi_1\rangle}{\ud p}\\
+  |\tilde\psi_0\rangle=&\frac{|\tilde\psi_0\rangle}{1-\ud p}
 }
+The lossy term in $H$ is proportional to $a^\dagger a$ because the loss is proportional to $a^\dagger a$. The prefactor gives the correct overall normalization.
+
 \subsection{}
 \eqar{
   \rho+\ud\rho=&|\tilde\psi_1\rangle\langle\tilde\psi_1|+|\tilde\psi_0\rangle\langle\tilde\psi_0|\\
@@ -280,8 +287,7 @@ Since $\omega_R\propto E_0$
 }
 \subsection{}
 \eqar{
-  \diff{\rho}{t}=&\Gamma a\rho a^\dagger
-  -\frac{\ui}{\hbar}\sqr{H_0, \rho}
+  \diff{\rho}{t}=&\Gamma a\rho a^\dagger-\frac{\ui}{\hbar}\sqr{H_0, \rho}
   -\frac{\Gamma}{2}\rho a^\dagger a-\frac{\Gamma}{2}a^\dagger a\rho\\
   =&-\frac{\ui}{\hbar}\sqr{H_0, \rho}
   -\frac{1}{2}\paren{\Gamma\rho a^\dagger a-2\Gamma a\rho a^\dagger
