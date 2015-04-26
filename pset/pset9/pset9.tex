@@ -265,8 +265,30 @@ Variance of $\Delta x$ for each emission for three situations
 
 \section{Slowing an atom with off-resonant light}
 \subsection{}
+Scattering rate
+\eqar{
+  \Gamma_s=&\frac{\gamma}{2}\frac{s}{1+s+\paren{\dfrac{2\delta}{\gamma}}^2}\\
+  =&\frac{\gamma}{2}\frac{s}{1+s+\paren{\dfrac{2v}{\lambda\gamma}}^2}\\
+  \diff{v}{t}=&-\frac{p_{rec}}{m}\Gamma_s\\
+  =&-a_{max}\frac{s}{1+s+\paren{\dfrac{2v}{\lambda\gamma}}^2}
+  \intertext{Total time}
+  T=&\int_0^{v_{max}}\frac{1}{sa_{max}}\paren{1+s+\paren{\dfrac{2v}{\lambda\gamma}}^2}\ud v\\
+  =&\frac{v_{max}}{sa_{max}}\paren{1+s+\dfrac{4v_{max}^2}{3\lambda^2\gamma^2}}\\
+  =&43.5\frac{v_{max}}{a_{max}}\\
+  =&21.9\text{ms}
+}
 \subsection{}
+Let $t$ be the time until the atom stops
+\eqar{
+  t=&\frac{v}{sa_{max}}\paren{1+s+\dfrac{4v^2}{3\lambda^2\gamma^2}}\\
+  \approx&\\
+  v\approx&\sqrt[3]{\dfrac{3sa_{max}\lambda^2\gamma^2}{4}}t^{1/3}\\
+  l\approx&\sqrt[3]{\dfrac{3sa_{max}\lambda^2\gamma^2}{4}}\int_0^{T}t^{1/3}\ud t\\
+  =&\sqrt[3]{\dfrac{3sa_{max}\lambda^2\gamma^2}{4}}\frac{3}{4}T^{4/3}\\
+  \approx&7.8\text{m}
+}
 \subsection{}
+This is much longer and less efficient than a Zeeman slower.
 
 \section{Density Limit in a MOT}
 \subsection{}
