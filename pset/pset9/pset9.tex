@@ -292,9 +292,27 @@ This is much longer and less efficient than a Zeeman slower.
 
 \section{Density Limit in a MOT}
 \subsection{}
+The radiation from a single atom is
+\eqar{
+  S_{single}=&\frac{6\sigma_LI}{4\pi r^2}\hat r
+  \intertext{Force}
+  F_{single}=&\frac{6\sigma_L\sigma_RI}{4\pi r^2c}\hat r
+  \intertext{From Gauss' law}
+  \nabla\cdot F_{R}=&\frac{6\sigma_L\sigma_RIn}{c}
+}
 \subsection{}
+For a isotropic light field, the light force is proportional to the gradient of light intensity. For the case of scattering force, each atom is acting as a source for the gradient while for attenuation force, each atom is acting as a drain for the gradient (thus the minus sign). Furthermore, the frequency of the light is the trap light so the absorption cross section should be replaced by $\sigma_L$.
+
 \subsection{}
+\eqar{
+  \nabla\cdot\vec F=&\frac{6\sigma_L\paren{\sigma_R-\sigma_L}In}{c}-3\kappa\\
+  n_{max}=&\frac{3\kappa c}{6\sigma_L\paren{\sigma_R-\sigma_L}I}
+}
+
 \subsection{}
+On average $\sigma_R>\sigma_L$ due to the resonance component of the scattered light (Mollow triplet).
+
 \subsection{}
+This effectively replaces $n$ by $fn<n$ in $F_R$ and $F_A$ so the both $F_R$ and $F_A$ decreases (with same $n$) while $F_T$ remains the same (and might increase a little due to the lack of attenuation from the atoms). $n_{max}$ will increase by $f^{-1}$.
 
 \end{document}
