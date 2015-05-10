@@ -218,9 +218,98 @@
 
 \section{Sideband Cooling}
 \subsection{}
+Interaction term
+\eqar{
+  H_I=&\hbar\Omega\paren{\sigma_++\sigma_-}\cos\paren{k\hat x-\omega t}\\
+  =&\hbar\Omega\paren{\sigma_++\sigma_-}\cos\paren{\eta\paren{a+a^\dagger}-\omega t}\\
+  =&\frac{\hbar\Omega}2\paren{\sigma_++\sigma_-}\paren{\ue^{\ui\paren{\eta\paren{a+a^\dagger}-\omega t}}+\ue^{-\ui\paren{\eta\paren{a+a^\dagger}-\omega t}}}
+  \intertext{In the Lamb-Dicke limit}
+  H_I=&\frac{\hbar\Omega}2\paren{\sigma_++\sigma_-}\paren{\ue^{\ui\eta\paren{a+a^\dagger}}\ue^{-\ui\omega t}+\ue^{-\ui\eta\paren{a+a^\dagger}}\ue^{\ui\omega t}}\\
+  =&\frac{\hbar\Omega}2\paren{\sigma_++\sigma_-}\paren{\paren{1+\ui\eta\paren{a+a^\dagger}}\ue^{-\ui\omega t}+\paren{1-\ui\eta\paren{a+a^\dagger}}\ue^{\ui\omega t}}\\
+  =&\frac{\hbar\Omega}2\paren{\sigma_++\sigma_-}\paren{\ue^{-\ui\omega t}+\ue^{\ui\omega t}}+\ui\eta\frac{\hbar\Omega}2\paren{\sigma_++\sigma_-}\paren{a+a^\dagger}\paren{\ue^{-\ui\omega t}-\ue^{\ui\omega t}}
+  \intertext{In the interaction picture}
+  \sigma_\pm'=&\ue^{\ui H_0t/\hbar}\sigma_\pm\ue^{-\ui H_0t/\hbar}\\
+  =&\sigma_\pm\ue^{\ui\omega_0 t}\\
+  a'=&\ue^{\ui H_0t/\hbar}a\ue^{-\ui H_0t/\hbar}\\
+  =&a\ue^{-\ui\nu t}\\
+  a'^\dagger=&\ue^{\ui H_0t/\hbar}a^\dagger\ue^{-\ui H_0t/\hbar}\\
+  =&a^\dagger\ue^{\ui\nu t}
+  \intertext{In the rotating wave approximation}
+  H_I'=&\ue^{\ui H_0t/\hbar}H_I\ue^{-\ui H_0t/\hbar}\\
+  =&\frac{\hbar\Omega}2\paren{\sigma_+\ue^{-\ui\delta t}+\sigma_-\ue^{\ui\delta t}}
+  +\ui\eta\frac{\hbar\Omega}2\paren{\sigma_+a\ue^{-\ui\paren{\delta+\nu}t}-\sigma_-a^\dagger\ue^{\ui\paren{\delta+\nu}t}}\\
+  &+\ui\eta\frac{\hbar\Omega}2\paren{\sigma_+a^\dagger\ue^{-\ui\paren{\delta-\nu}t}-\sigma_-a\ue^{\ui\paren{\delta-\nu}t}}
+}
+When the light is in resonance with the sideband, the Rabi frequencies
+\eqar{
+  \Omega_{n,n-1}=&\abs{\langle n-1,e|\ui\eta\frac{\hbar\Omega}2\paren{\sigma_+a-\sigma_-a^\dagger}|n,g\rangle}\\
+  =&\frac{\eta\hbar\Omega}2\langle n-1|a|n\rangle\\
+  =&\frac{\eta\hbar\Omega}2\sqrt{n}\\
+  \Omega_{n,n+1}=&\abs{\langle n+1,e|\ui\eta\frac{\hbar\Omega}2\paren{\sigma_+a^\dagger-\sigma_-a}|n,g\rangle}\\
+  =&\frac{\eta\hbar\Omega}2\langle n+1|a^\dagger|n\rangle\\
+  =&\frac{\eta\hbar\Omega}2\sqrt{n+1}
+}
 \subsection{}
+For spontanious decay, when the emitted photon is $\theta$ from the axis of the trap, the probability to go from $n$ to $n+1$ is $\eta^2\cos^2\theta\paren{n+1}$ Assuming isotropic emission patter (i.e. non-polarized) the averate probability is
+\eqar{
+  p_{n,n+1}=&\frac1{4\pi}\int_0^{\pi}\ud\theta\int_{0}^{2\pi}\sin\theta\ud\phi\eta^2\cos^2\theta\paren{n+1}\\
+  =&\frac{\eta^2\paren{n+1}}{2}\int_{-1}^{1}\ud z z^2\\
+  =&\frac{\eta^2\paren{n+1}}{3}
+  \intertext{Similarly, the probability of going to $n-1$ is}
+  p_{n,n-1}=&\frac{\eta^2n}{3}
+}
+To the lowest order in $\eta$, the rate at which $|n,g\rangle\rightarrow|n,e\rangle\rightarrow|n-1,g\rangle$ happens is
+\eqar{
+  &\frac{n\Omega^2\eta^2}{3}\frac{\Gamma}{\Gamma^2+4\delta^2}
+  \intertext{For $|n,g\rangle\rightarrow|n-1,e\rangle\rightarrow|n-1,g\rangle$}
+  &n\Omega^2\eta^2\frac{\Gamma}{\Gamma^2+4\paren{\delta+\nu}^2}\\
+  A_-=&\Omega^2\Gamma\eta^2\paren{\frac{1}{\Gamma^2+4\paren{\delta+\nu}^2}+\frac{1}{3}\frac{1}{\Gamma^2+4\delta^2}}
+  \intertext{Similarly}
+  A_+=&\Omega^2\Gamma\eta^2\paren{\frac{1}{\Gamma^2+4\paren{\delta-\nu}^2}+\frac{1}{3}\frac{1}{\Gamma^2+4\delta^2}}
+}
 \subsection{}
+\eqar{
+  \diff{\angl{n}}{t}=&\sum_{n=0}^{\infty}n\diff{p_n}{t}\\
+  =&\sum_{n=0}^{\infty}n\paren{nA_+p_{n-1}+\paren{n+1}A_-p_{n+1}-\paren{n+1}A_+p_n-nA_-p_n}\\
+  =&\sum_{n=0}^{\infty}\paren{n^2A_+p_{n-1}+n\paren{n+1}A_-p_{n+1}-n\paren{n+1}A_+p_n-n^2A_-p_n}\\
+  =&\sum_{n=0}^{\infty}\paren{\paren{n+1}^2A_+p_n+\paren{n-1}nA_-p_n-n\paren{n+1}A_+p_n-n^2A_-p_n}\\
+  =&\sum_{n=0}^{\infty}\paren{\paren{n+1}A_+p_n-nA_-p_n}\\
+  =&A_+-\paren{A_--A_+}\angl{n}
+}
+The solution is a exponential decay to $\angl{n}=\dfrac{A_+}{A_--A_+}$ with decay rate $A_--A_+$. For driving cooling sideband in the resolved limit
+\eqar{
+  A_-\approx&\frac{\Omega^2\eta^2}{\Gamma}\\
+  A_+\approx&\frac{7\Omega^2\Gamma\eta^2}{48\nu^2}
+}
+Final temperature
+\eqar{
+  \angl{n}_\infty\approx&\dfrac{A_+}{A_-}\\
+  =&\frac{7\Gamma^2}{48\nu^2}\\
+  T_\infty=&\angl{n}_\infty\frac{\hbar\nu}{k_B}\\
+  \approx&\frac{7\hbar\Gamma^2}{48k_B\nu}
+}
+Decay time
+\eqar{
+  \tau\approx&\frac{1}{A_-}\\
+  \approx&\frac{\Gamma}{\Omega^2\eta^2}
+}
 \subsection{}
+For the narrow line
+\eqar{
+  \eta=&k\sqrt{\frac{\hbar}{2m\nu}}\\
+  =&0.022\\
+  T_\infty\approx&\frac{7\hbar\Gamma^2}{48k_B\nu}\\
+  =&0.11\text{aK}\\
+  \tau\approx&\frac{\Gamma}{\Omega^2\eta^2}\\
+  =&22\text{hr}
+}
+For broadened line
+\eqar{
+  T_\infty\approx&\frac{7\hbar\Gamma^2}{48k_B\nu}\\
+  =&7.0\text{nK}\\
+  \tau\approx&\frac{\Gamma}{\Omega^2\eta^2}\\
+  =&0.32\text{s}
+}
 
 \section{Optical dipole trap}
 \subsection{}
