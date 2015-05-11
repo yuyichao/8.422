@@ -219,6 +219,18 @@ AC Stark shift
 }
 The sign depends on the state and the detuning (positive for excited state red detune and ground state blue detune and negetive otherwise)
 \subsection{}
+Without loss of generality, consider the ground state and red detuning
+\eqar{
+  \angl{P}=&\langle -|P|-\rangle\\
+  =&e\paren{\sin\theta\langle e'|+\cos\theta\langle g'|}z\paren{\sin\theta|e'\rangle+\cos\theta|g'\rangle}\\
+  =&e\sin\theta\cos\theta\paren{\langle e'|z|g'\rangle+\langle g'|z|e'\rangle}\\
+  =&e\frac{\Omega_1}{\Omega}\langle e|z|g\rangle\cos\omega_Lt\\
+  =&e\frac{e\langle e|z|g\rangle E_0}{\hbar\Omega}\langle e|z|g\rangle\cos\omega_Lt\\
+  \alpha=&\frac{e^2}{\hbar\Omega}\abs{\langle e|z|g\rangle}^2\\
+  =&\frac{e^2}{\hbar\Omega}\frac{\hbar f_{ab}}{2m\omega_0}\\
+  =&\frac{e^2f_{ab}}{2m\omega_0\Omega}
+}
+The two agrees in the far detuned high frequency limit (where $\Omega=\delta$ and $\omega_0+\omega_L\approx2\omega_0$). When $\omega_L\rightarrow\omega_0$ the perturbation treatment breaks down and the effect becomes none linear (or non-quadratic). The linewidth / decay can also be important in real system.
 \subsection{}
 \subsection{}
 \subsection{}
