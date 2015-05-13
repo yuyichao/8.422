@@ -232,9 +232,28 @@ Without loss of generality, consider the ground state and red detuning
 }
 The two agrees in the far detuned high frequency limit (where $\Omega=\delta$ and $\omega_0+\omega_L\approx2\omega_0$). When $\omega_L\rightarrow\omega_0$ the perturbation treatment breaks down and the effect becomes none linear (or non-quadratic). The linewidth / decay can also be important in real system.
 \subsection{}
+The two expressions are
+\eqar{
+  E_1=&\frac{e^2f_{ab}}{2m\omega_0^2}\\
+  E_2=&\frac{e^2f_{ab}}{m\omega_0^2}
+}
+The first one is only valid when $\delta\ll\omega_0$
+\subsection{}
+General solution ($\abs{a}^2+\abs{b}^2=1$)
+\eqar{
+  |\psi\rangle=&\paren{a\ue^{-\ui\Omega t/2}\cos\theta-b\ue^{\ui\Omega t/2}\sin\theta}\ue^{-\ui\omega_Lt/2}|e\rangle+\paren{a\ue^{-\ui\Omega t/2}\sin\theta+b\ue^{\ui\Omega t/2}\cos\theta}\ue^{\ui\omega_Lt/2}|g\rangle\\
+  \langle\psi_0|\psi\rangle=&\paren{\paren{a\cos\theta-b\sin\theta}\langle e|+\paren{a\sin\theta+b\cos\theta}\langle g|}\\
+  &\paren{\paren{a\ue^{-\ui\Omega t/2}\cos\theta-b\ue^{\ui\Omega t/2}\sin\theta}\ue^{-\ui\omega_Lt/2}|e\rangle+\paren{a\ue^{-\ui\Omega t/2}\sin\theta+b\ue^{\ui\Omega t/2}\cos\theta}\ue^{\ui\omega_Lt/2}|g\rangle}\\
+  =&\paren{a\cos\theta-b\sin\theta}\paren{a\ue^{-\ui\Omega t/2}\cos\theta-b\ue^{\ui\Omega t/2}\sin\theta}\ue^{-\ui\omega_Lt/2}\\
+  &+\paren{a\sin\theta+b\cos\theta}\paren{a\ue^{-\ui\Omega t/2}\sin\theta+b\ue^{\ui\Omega t/2}\cos\theta}\ue^{\ui\omega_Lt/2}
+  \intertext{On average}
+  \abs{\langle\psi_0|\psi\rangle}^2=&\abs{a\cos\theta-b\sin\theta}^2\abs{a\ue^{-\ui\Omega t/2}\cos\theta-b\ue^{\ui\Omega t/2}\sin\theta}^2\\
+  &+\abs{a\sin\theta+b\cos\theta}^2\abs{a\ue^{-\ui\Omega t/2}\sin\theta+b\ue^{\ui\Omega t/2}\cos\theta}^2
+}
+The Rabi oscillation is included in the $\ue^{\pm\ui\Omega t/2}$ terms
 \subsection{}
 \subsection{}
-\subsection{}
+The classical picture is the limit of the fully quantum picture in the strong drive/large photon number limit.
 
 \section{Sideband Cooling}
 \subsection{}
