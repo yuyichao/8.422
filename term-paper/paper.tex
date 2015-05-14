@@ -86,9 +86,75 @@
 
 \section{Feshbach Resonance}
 \subsection{$T$-Matrix and scatter length}
+
+% S Wave (L=0 isotropic)
+% k \rightarrow 0
+% r \rightarrow \infty
+\eqar{
+  \Psi\paren{\vec r}=&\ue^{\ui \vec k_0\cdot \vec r}-\Psi_{s}
+  \approx&\ue^{\ui \vec k_0\cdot \vec r}-\frac{a}{r}
+}
+
+% Schroedinger equation
+% E=\frac{k^2}{m}
+% U(\vec k, \vec k')=\int\ud^3\vec r\int\ud^3\vec r'U\paren{\vec r-\vec r'}\ue^{\ui\vec k\cdot\vec r}\ue^{-\ui\vec k'\cdot\vec r'}
+\eqar{
+  \frac1{m}\paren{k^2-k'^2}\Psi_{s}\paren{\vec k'}=&U\paren{\vec k', \vec k}+\int\frac{\ud^3 k''}{\paren{2\pi}^3}U\paren{\vec k', \vec k''}\Psi_s\paren{\vec k''}
+}
+
+Define $T$ matrix
+\eqar{
+  T\paren{\vec k', \vec k}=&U\paren{\vec k', \vec k}+\int\frac{\ud^3k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{k^2/m-k''^2/m+\ui 0}T\paren{\vec k'', \vec k}\\
+  \Psi_s\paren{\vec k'}=&\frac{m}{k^2-k'^2+\ui 0}T\paren{\vec k', \vec k, \frac{k^2}{m}}\\
+  f\paren{\vec k', \vec k}=&-\frac{m}{4\pi\hbar^2}T\paren{\vec k', \vec k, \frac{k^2}{m}}
+}
+
+% Effective interaction
+% Energy cut-off \varepsilon_c
+% k_c, R
+\eqar{
+  \tilde U\paren{\vec k', \vec k}=&U\paren{\vec k', \vec k}+\int_{k''^2/m>\varepsilon_c}\frac{\ud^3 k''}{\paren{2\pi}^3}\frac{\tilde U\paren{\vec k', \vec k''}}{k^2/m-k''^2/m+\ui 0}\tilde U\paren{\vec k'', \vec k}
+}
+\eqar{
+  T\paren{\vec k', \vec k}=&\tilde U\paren{\vec k', \vec k}+\int_{k''^2/m<\varepsilon_c}\frac{\ud^3 k'}{\paren{2\pi}^3}\frac{\tilde U\paren{\vec k', \vec k''}}{k^2/m-k''^2/m+\ui0}T\paren{\vec k'', \vec k}
+}
+% U\paren{\vec r}=U_0\delta^3\paren{\vec r}
+% Energy conservation
+% mainly k' == k
+\eqar{
+  \frac{1}{f\paren{k}}=&-\frac{4\pi}{mU_0}+4\pi\int_{\abs{q}<1/R}\frac{\ud^3q}{\paren{2\pi}^3}\frac{1}{k^2-q^2+\ui0}\\
+  =&\frac{1}{2\pi^2}\paren{-\frac{1}{R}-\frac{k}{2}\ln\paren{-\frac{R^{-1}-k-\ui0}{R^{-1}+k+\ui0}}}\\
+  \approx&\frac{1}{2\pi^2}\paren{-\frac{1}{R}-\frac{\ui\pi k}{2}+k^2R}
+}
+
+% f\paren{0}=-a
+\eqar{
+  a=&\frac{\pi}{2}\frac{R}{1+\frac{2\pi^2R}{mU_0}}\\
+  f\paren{k}=&\frac{1}{a^{-1}+r_{eff}k^2/2-\ui k}
+}
+% Dependency of U_0 on R
+
 \subsection{Multichannel scattering and Feshbach resonance}
+% Hamiltonian
+\eqar{
+  \hat H_0|\vec k\rangle=&
+}
+% Solution
+
+% Bound states
+
+% Compare to generic fomula and get scattering length
 
 \section{Confinement induced resonance}
+% Seperate COM and relative
+
+% Cutoff
+
+% Compare to 3-d
+
+% Bound state
+
+% Scattering length
 
 \section{Conclusion}
 
