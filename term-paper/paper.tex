@@ -98,7 +98,7 @@ In a scattering problem, the wave function can be broken into the incident wave 
 \[\Psi_i=\ue^{\ui\vec k\cdot\vec r}\]
 and the scattered wave can be expressed as a spherical wave centered around the scattering core ($\vec r=0$)
 \[\Psi_s=\frac{f\paren{\theta}}{r}\ue^{\ui k'r}\]
-For all the discussion in this paper, we are taking the limit of low temperature (i.e. low kinetic energy) in which case the scattering is limitted to $S$-wave (angular momentum $L^2=0$) and in the limit of long wavelength $k\rightarrow0$. In such a limit, the total wave function can be written as
+For all the discussion in this paper, we are taking the limit of low temperature (i.e. low kinetic energy) in which case the scattering is limitted to $S$-wave (angular momentum $L^2=0$). We also assume that the interaction is short range so that the behavior is regular for long wavelength and we can take the limit of $k\rightarrow0$. In such a limit, the total wave function can be written as
 \eqar{
   \Psi\paren{\vec r}=&\Psi_i\paren{\vec r}+\Psi_s\paren{\vec r}\\
   \approx&\ue^{\ui \vec k_0\cdot \vec r}-\frac{a}{r}
@@ -111,16 +111,27 @@ where $U\paren{\vec k', \vec k}$ is the Fourier transform of the interaction
 \[ U(\vec k', \vec k)=\int\ud^3\vec r\int\ud^3\vec r'U\paren{\vec r'-\vec r}\ue^{\ui\vec k'\cdot\vec r'}\ue^{-\ui\vec k\cdot\vec r}\]
 and we have used the fact that the interaction is short range and the energy of the state is determined by the long distance behavior of the incident state $E_k=k^2/2m$.
 
-\subsection{$T$-Matrix and effective interaction}
-
-Define $T$ matrix
+\subsection{$T$-Matrix}
+The $T$-matrix is defined as a map from the initial state of the scattering (which is a $\delta$ function in $k$ space in our case) to the final state. It is defined as
 \eqar{
-  T\paren{\vec k', \vec k}=&U\paren{\vec k', \vec k}+\int\frac{\ud^3k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{k^2/m-k''^2/m+\ui 0}T\paren{\vec k'', \vec k}\\
-  \Psi_s\paren{\vec k'}=&\frac{m}{k^2-k'^2+\ui 0}T\paren{\vec k', \vec k}\\
-  f\paren{\vec k', \vec k}=&-\frac{m}{4\pi\hbar^2}T\paren{\vec k', \vec k}
+  T\paren{\vec k', \vec k}=&U\paren{\vec k', \vec k}+m\int\frac{\ud^3k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{k^2-k''^2+\ui 0}T\paren{\vec k'', \vec k}}
+where the $+\ui 0$ denotes a infinitesimal quantity to ensure that we have outgoing waves. Note the similarity with the equation satisfied by the scattered wavefunction. Using the $T$-matrix, we can express the scattered wavefunction as
+\[\Psi_s\paren{\vec k'}=\frac{m}{k^2-k'^2+\ui 0}T\paren{\vec k', \vec k}\]
+And we cans also define the scattering amplitude as
+% \[f\paren{\vec k', \vec k}=-\frac{m}{4\pi\hbar^2}T\paren{\vec k', \vec k}\]
+\[f\paren{\vec k', \vec k}=-\frac{m}{4\pi}T\paren{\vec k', \vec k}\]
+For the problem we are considering, we will take the limit of $k, k'\rightarrow0$, therefore
+\[\Psi_s\paren{\vec k'}=\frac{m}{k^2-k'^2+\ui 0}T\paren{0, 0}\]
+In real space
+\eqar{
+  \Psi_s\paren{\vec r}=&\int\frac{\ud k'^3}{\paren{2\pi}^3}\frac{m\ue^{\ui\vec k'\cdot\vec r}}{k^2-k'^2+\ui 0}T\paren{0, 0}\\
+  =&-\frac{m\ue^{\ui kr}}{4\pi r}T\paren{0, 0}
 }
+and by comparing to the form of $\Psi_s$ at low temperature we have $f(k\rightarrow0)=-a$
 
-% Effective interaction
+\subsection{Effective interaction}
+Althought the interaction potential between two atoms can be very strong and hard to calculate, they are usually very short range and the precise behavior can only affect the states with a large $k$. Therefore, for the state
+
 % Energy cut-off \varepsilon_c
 % k_c, R
 \eqar{
