@@ -130,31 +130,26 @@ In real space
 and by comparing to the form of $\Psi_s$ at low temperature we have $f(k\rightarrow0)=-a$
 
 \subsection{Effective interaction}
-Althought the interaction potential between two atoms can be very strong and hard to calculate, they are usually very short range and the precise behavior can only affect the states with a large $k$. Therefore, for the state
-
-% Energy cut-off \varepsilon_c
-% k_c, R
+Althought the interaction potential between two atoms can be very strong and hard to calculate, they are usually very short range and their precise behavior can only affect the states with a large $k$. Therefore, for the purpose of low energy collision in which both the initial and final state has a small $k$, it is useful to introduce a simple effective potential that can be used to describe these low energy process below a cut-off energy $\varepsilon_c$. Let the corresponding cut-off in wave vector and length be $k_c^2/m=\varepsilon_c$ and $R_c=k_c^{-1}$, we can write a effective potential $\tilde U\paren{\vec k', \vec k}$
+\[\tilde U\paren{\vec k', \vec k}=U\paren{\vec k', \vec k}+m\int_{k_c}\!\!\frac{\ud^3 k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{k^2-k''^2+\ui 0}\tilde U\paren{\vec k'', \vec k}\]
+And express the scattering process using this potential and only low energy states as
+\[T\paren{\vec k', \vec k}=\tilde U\paren{\vec k', \vec k}+m\int^{k_c}\!\!\frac{\ud^3 k'}{\paren{2\pi}^3}\frac{\tilde U\paren{\vec k', \vec k''}}{k^2-k''^2+\ui0}T\paren{\vec k'', \vec k}\]
+The effective potential can now be any short range function that gives the correct scattering amplitude. As the simplest potential, the one that is usually taken is a $\delta$ function
+\[U\paren{\vec r}=U_0\delta^3\paren{\vec r}\]
+Using which we can write the equation for the scattering amplitude
 \eqar{
-  \tilde U\paren{\vec k', \vec k}=&U\paren{\vec k', \vec k}+\int_{k''^2/m>\varepsilon_c}\frac{\ud^3 k''}{\paren{2\pi}^3}\frac{\tilde U\paren{\vec k', \vec k''}}{k^2/m-k''^2/m+\ui 0}\tilde U\paren{\vec k'', \vec k}
+  f\paren{\vec k', \vec k}=&-\frac{mU\paren{\vec k'-\vec k}}{4\pi}\\
+  &+m\int^{k_c}\!\!\frac{\ud^3k''}{\paren{2\pi}^3}\frac{U\paren{\vec k'-\vec k''}f\paren{\vec k'',\vec k}}{k^2-k''^2+\ui0}
 }
+Since the major contribution of the integral comes from when $\abs{k}=\abs{k''}$, we can replace $f\paren{\vec k'', \vec k}$ by $f\paren{k}$ therefore
 \eqar{
-  T\paren{\vec k', \vec k}=&\tilde U\paren{\vec k', \vec k}+\int_{k''^2/m<\varepsilon_c}\frac{\ud^3 k'}{\paren{2\pi}^3}\frac{\tilde U\paren{\vec k', \vec k''}}{k^2/m-k''^2/m+\ui0}T\paren{\vec k'', \vec k}
+  \frac{1}{f\paren{k}}=&-\frac{4\pi}{mU_0}+4\pi\int^{k_c}\frac{\ud^3k''}{\paren{2\pi}^3}\frac{1}{k^2-k''^2+\ui0}\\
+  =&-\frac{4\pi}{mU_0}+\frac{2}{\pi}\paren{-k_c-\frac{k}{2}\ln\paren{-\frac{k_c-k-\ui0}{k_c+k+\ui0}}}\\
+  \approx&-\frac{4\pi}{mU_0}+\frac{2}{\pi}\paren{-k_c-\frac{\ui\pi k}{2}+\frac{k^2}{k_c}}
 }
-% U\paren{\vec r}=U_0\delta^3\paren{\vec r}
-% Energy conservation
-% mainly k' == k
-\eqar{
-  \frac{1}{f\paren{k}}=&-\frac{4\pi}{mU_0}+4\pi\int_{\abs{q}<1/R}\frac{\ud^3q}{\paren{2\pi}^3}\frac{1}{k^2-q^2+\ui0}\\
-  =&\frac{1}{2\pi^2}\paren{-\frac{1}{R}-\frac{k}{2}\ln\paren{-\frac{R^{-1}-k-\ui0}{R^{-1}+k+\ui0}}}\\
-  \approx&\frac{1}{2\pi^2}\paren{-\frac{1}{R}-\frac{\ui\pi k}{2}+k^2R}
-}
-
-% f\paren{0}=-a
-\eqar{
-  a=&\frac{\pi}{2}\frac{R}{1+\frac{2\pi^2R}{mU_0}}\\
-  f\paren{k}=&\frac{1}{a^{-1}+r_{eff}k^2/2-\ui k}
-}
-% Dependency of U_0 on R
+therefore
+\[a=&\frac{\pi}{2}\frac{mU_0}{mU_0k_c+2\pi^2}\]
+Note that non of the cut-off $k_c$ or the effective potential $U_0$ is physical but the scattering length $a$ is. Any physical process calculated with the effective model should only depend on physical quantities and $k_c$ and $U_0$ should drop out.
 
 \subsection{Multichannel scattering and Feshbach resonance}
 % Hamiltonian
