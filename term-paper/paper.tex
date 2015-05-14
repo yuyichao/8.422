@@ -151,19 +151,32 @@ therefore
 \[a=\frac{\pi}{2}\frac{mU_0}{mU_0k_c+2\pi^2}\]
 Note that non of the cut-off $k_c$ or the effective potential $U_0$ is physical but the scattering length $a$ is. Any physical process calculated with the effective model should only depend on physical quantities and $k_c$ and $U_0$ should drop out.
 
-\subsection{Multichannel scattering and Feshbach resonance}
-% Hamiltonian
-\eqar{
-  \hat H_0|\vec k\rangle=&
-}
-% Solution
-
-% Bound states
-
-% Compare to generic fomula and get scattering length
-
 \section{Confinement induced resonance}
-% Seperate COM and relative
+When atoms are confined in a strong trapping potential in certain directions but not in the others, their motion in the confined directions can be completely frozen out if the chemical potential of each partical is much smaller than the excitation energy of the trap. On the other hand, in the other directions, there is no trapping potentials and the motion of the atoms are effectively the same with that of atoms in a lower dimension. When considering the collisional properties in such a geometry, one might naively expect that the confinement does not contribute much because of the difference in energy scales. This assumption is usually true but can break down near a Feshbach resonance. Due to the strong interaction between the atoms, high vibrational state in the confined direction can be virtually excited during a collision and therefore modify the properties of the collision.\\
+
+The right way to study the process is to do a three dimensional calculation of the collision which include all the transversely excited states. In this section, we will use the framework we have developed above to calculate the collisional properties in a strong harmonic transverse potential. In order to normalize the result at the cut-off energy scale, we compare our result to the well-known free-space Feshbach resonance.
+
+\section{Separation of motion}
+The advantage of using harmonic confinement is that center-of-mass (COM) motion and the relative motion can be separated. Given the Hamiltonian of two interacting particles
+\eqar{
+  H=&\frac{1}{2m}\sum_{i;\alpha}p_{i\alpha}^2+\frac{m\omega^2}{2}\sum_{i;\alpha<d_\perp}x_{i\alpha}^2+V
+}
+where $i=1,2$ is the index of particles, $\alpha$ is the index of dimensions, $d_\perp$ is the number of confined dimensions and $V=V\paren{\vec r_1, \vec r_2}$ is the interaction potential. If we define center-of-mass coordinates
+\eqar{
+  X_\alpha=&\frac{x_{1\alpha}+x_{2\alpha}}{2}&P_\alpha=&p_{1\alpha}+p_{2\alpha}
+}
+and relative coordinates
+\eqar{
+  x_\alpha=&x_{1\alpha}-x_{2\alpha}&p_\alpha=&\frac{p_{1\alpha}-p_{2\alpha}}{2}
+}
+the new coordinates still satisfies the canonical commutation relation and the Hamiltonian is fully separated
+\eqar{
+  H=&H_{CM}+H_{rel}\\
+  H_{CM}=&\frac{1}{4m}\sum_\alpha P_\alpha^2+m\omega^2\sum_\alpha X_\alpha^2\\
+  H_{rel}=&\frac{1}{m}\sum_\alpha p_\alpha^2+\frac{m\omega^2}{4}\sum_\alpha x_\alpha^2+V\paren{\vec r_{12}}
+}
+And the relative motion problem, therefore the collision problem, is reduced to a single partical problem.
+
 
 % Cutoff
 
