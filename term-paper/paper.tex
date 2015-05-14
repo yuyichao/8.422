@@ -84,30 +84,40 @@
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-In the field of ultra-cold atoms and molecules, the collisional properties between the particles play an important role both for cooling into quantum degeneracy and as a source of correlation and entanglement in a many-body system.
-\section{Feshbach Resonance}
-\subsection{$T$-Matrix and scatter length}
+In the field of ultra-cold atoms and molecules, the collisional properties between the particles play an important role for cooling into quantum degeneracy. The tunability of the scattering length using Feshbach resonance opens the door for engineering the interaction and using it as a source of correlation and entanglement in a many-body system.
 
-% S Wave (L=0 isotropic)
-% k \rightarrow 0
-% r \rightarrow \infty
+
+\section{Feshbach Resonance}
+% Cite optical feshbach resonance
+Feshbach resonance is a way to tune the interaction between two atoms. It appears as a divergence in the scattering length when the energy of a molecular bound state matches or is closed to the energy of the free atom state. The relative energy between the molecular and atomic is usually tuned using the magnetic field and the difference in Zeeman effect between the two states although optical dressing has also been used on excited metastable state.\\
+
+In this section, we will describe a formal way to calculate the properties of $S$-wave scattering at low temperature. We will then apply this framework to a simplified model of Feshbach resonance consists of a open channel for the free atomic state and a closed channel for the molecular bound state.
+
+\subsection{Wave function of a scattering process}
+In a scattering problem, the wave function can be broken into the incident wave $\Psi_i$ and the scattered wave $\Psi_s$ where the incident wave is usually a plain wave
+\[\Psi_i=\ue^{\ui\vec k\cdot\vec r}\]
+and the scattered wave can be expressed as a spherical wave centered around the scattering core ($\vec r=0$)
+\[\Psi_s=\frac{f\paren{\theta}}{r}\ue^{\ui k'r}\]
+For all the discussion in this paper, we are taking the limit of low temperature (i.e. low kinetic energy) in which case the scattering is limitted to $S$-wave (angular momentum $L^2=0$) and in the limit of long wavelength $k\rightarrow0$. In such a limit, the total wave function can be written as
 \eqar{
-  \Psi\paren{\vec r}=&\ue^{\ui \vec k_0\cdot \vec r}-\Psi_{s}
+  \Psi\paren{\vec r}=&\Psi_i\paren{\vec r}+\Psi_s\paren{\vec r}\\
   \approx&\ue^{\ui \vec k_0\cdot \vec r}-\frac{a}{r}
 }
-
-% Schroedinger equation
-% E=\frac{k^2}{m}
-% U(\vec k, \vec k')=\int\ud^3\vec r\int\ud^3\vec r'U\paren{\vec r-\vec r'}\ue^{\ui\vec k\cdot\vec r}\ue^{-\ui\vec k'\cdot\vec r'}
+where $a$, which describe the fraction being scattered, is defined as the scattering length. In order to solve this problem, it is convinient to express the Schr\"odinger equation in the momentum space
 \eqar{
-  \frac1{m}\paren{k^2-k'^2}\Psi_{s}\paren{\vec k'}=&U\paren{\vec k', \vec k}+\int\frac{\ud^3 k''}{\paren{2\pi}^3}U\paren{\vec k', \vec k''}\Psi_s\paren{\vec k''}
+  \frac{k^2-k'^2}{m}\Psi_{s}\paren{\vec k'}=&U\paren{\vec k', \vec k}+\int\frac{\ud^3 k''}{\paren{2\pi}^3}U\paren{\vec k', \vec k''}\Psi_s\paren{\vec k''}
 }
+where $U\paren{\vec k', \vec k}$ is the Fourier transform of the interaction
+\[ U(\vec k', \vec k)=\int\ud^3\vec r\int\ud^3\vec r'U\paren{\vec r'-\vec r}\ue^{\ui\vec k'\cdot\vec r'}\ue^{-\ui\vec k\cdot\vec r}\]
+and we have used the fact that the interaction is short range and the energy of the state is determined by the long distance behavior of the incident state $E_k=k^2/2m$.
+
+\subsection{$T$-Matrix and effective interaction}
 
 Define $T$ matrix
 \eqar{
   T\paren{\vec k', \vec k}=&U\paren{\vec k', \vec k}+\int\frac{\ud^3k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{k^2/m-k''^2/m+\ui 0}T\paren{\vec k'', \vec k}\\
-  \Psi_s\paren{\vec k'}=&\frac{m}{k^2-k'^2+\ui 0}T\paren{\vec k', \vec k, \frac{k^2}{m}}\\
-  f\paren{\vec k', \vec k}=&-\frac{m}{4\pi\hbar^2}T\paren{\vec k', \vec k, \frac{k^2}{m}}
+  \Psi_s\paren{\vec k'}=&\frac{m}{k^2-k'^2+\ui 0}T\paren{\vec k', \vec k}\\
+  f\paren{\vec k', \vec k}=&-\frac{m}{4\pi\hbar^2}T\paren{\vec k', \vec k}
 }
 
 % Effective interaction
