@@ -114,18 +114,17 @@ and we have used the fact that the interaction is short range and the energy of 
 The $T$-matrix is defined as a map from the initial state of the scattering (which is a $\delta$ function in $k$ space in our case) to the final state. It is defined as,
 \[\hat T=\hat V+\hat V\frac{1}{E-\hat H_0+\ui 0}\hat T\]
 For the scattering process in free space, the equation above can be represented in $k$ space as,
-\[T\paren{\vec k', \vec k}=U\paren{\vec k', \vec k}+m\int\frac{\ud^3k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{k^2-k''^2+\ui 0}T\paren{\vec k'', \vec k}\]
+\[T\paren{\vec k', \vec k, E}=U\paren{\vec k', \vec k}+\int\frac{\ud^3k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{E-k''^2/m+\ui 0}T\paren{\vec k'', \vec k, E}\]
 where the $+\ui 0$ denotes a infinitesimal quantity to ensure that we have outgoing waves. Note the similarity with the equation satisfied by the scattered wavefunction. Using the $T$-matrix, we can express the scattered wavefunction as
-\[\Psi_s\paren{\vec k'}=\frac{m}{k^2-k'^2+\ui 0}T\paren{\vec k', \vec k}\]
+\[\Psi_s\paren{\vec k'}=\frac{m}{k^2-k'^2+\ui 0}T\paren{\vec k', \vec k, \frac{k^2}m}\]
 And we cans also define the scattering amplitude as
-% \[f\paren{\vec k', \vec k}=-\frac{m}{4\pi\hbar^2}T\paren{\vec k', \vec k}\]
-\[f\paren{\vec k', \vec k}=-\frac{m}{4\pi}T\paren{\vec k', \vec k}\]
+\[f\paren{\vec k', \vec k}=-\frac{m}{4\pi}T\paren{\vec k', \vec k, \frac{k^2}{m}}\]
 For the problem we are considering, we will take the limit of $k, k'\rightarrow0$, therefore
-\[\Psi_s\paren{\vec k'}=\frac{m}{k^2-k'^2+\ui 0}T\paren{0, 0}\]
+\[\Psi_s\paren{\vec k'}=\frac{m}{k^2-k'^2+\ui 0}T\paren{0, 0, 0}\]
 In real space
 \eqar{
-  \Psi_s\paren{\vec r}=&\int\frac{\ud k'^3}{\paren{2\pi}^3}\frac{m\ue^{\ui\vec k'\cdot\vec r}}{k^2-k'^2+\ui 0}T\paren{0, 0}\\
-  =&-\frac{m\ue^{\ui kr}}{4\pi r}T\paren{0, 0}
+  \Psi_s\paren{\vec r}=&\int\frac{\ud k'^3}{\paren{2\pi}^3}\frac{m\ue^{\ui\vec k'\cdot\vec r}}{k^2-k'^2+\ui 0}T\paren{0, 0, 0}\\
+  =&-\frac{m\ue^{\ui kr}}{4\pi r}T\paren{0, 0, 0}
 }
 and by comparing to the form of $\Psi_s$ at low temperature we have $f(k\rightarrow0)=-a$
 
@@ -133,7 +132,10 @@ and by comparing to the form of $\Psi_s$ at low temperature we have $f(k\rightar
 Althought the interaction potential between two atoms can be very strong and hard to calculate, they are usually very short range and their precise behavior can only affect the states with a large $k$. Therefore, for the purpose of low energy collision in which both the initial and final state has a small $k$, it is useful to introduce a simple effective potential that can be used to describe these low energy process below a cut-off energy $\varepsilon_c$. Let the corresponding cut-off in wave vector and length be $k_c^2/m=\varepsilon_c$ and $R_c=k_c^{-1}$, we can write a effective potential $\tilde U\paren{\vec k', \vec k}$
 \[\tilde U\paren{\vec k', \vec k}=U\paren{\vec k', \vec k}+m\int_{k_c}\!\!\frac{\ud^3 k''}{\paren{2\pi}^3}\frac{U\paren{\vec k', \vec k''}}{k^2-k''^2+\ui 0}\tilde U\paren{\vec k'', \vec k}\]
 And express the scattering process using this potential and only low energy states as
-\[T\paren{\vec k', \vec k}=\tilde U\paren{\vec k', \vec k}+m\int^{k_c}\!\!\frac{\ud^3 k'}{\paren{2\pi}^3}\frac{\tilde U\paren{\vec k', \vec k''}}{k^2-k''^2+\ui0}T\paren{\vec k'', \vec k}\]
+\eqar{
+  T\paren{\vec k', \vec k, E}=&\tilde U\paren{\vec k', \vec k}\\
+  &+\int^{k_c}\!\!\frac{\ud^3 k'}{\paren{2\pi}^3}\frac{\tilde U\paren{\vec k', \vec k''}}{E-k''^2/m+\ui0}T\paren{\vec k'', \vec k, E}
+}
 The effective potential can now be any short range function that gives the correct scattering amplitude. As the simplest potential, the one that is usually taken is a $\delta$ function
 \[U\paren{\vec r}=U_0\delta^3\paren{\vec r}\]
 Using which we can write the equation for the scattering amplitude
@@ -156,12 +158,12 @@ When atoms are confined in a strong trapping potential in certain directions but
 
 The right way to study the process is to do a three dimensional calculation of the collision which include all the transversely excited states. In this section, we will use the framework we have developed above to calculate the collisional properties in a strong harmonic transverse potential. In order to normalize the result at the cut-off energy scale, we compare our result to the well-known free-space Feshbach resonance.
 
-\section{Separation of motion}
+\subsection{Separation of motion}
 The advantage of using harmonic confinement is that center-of-mass (COM) motion and the relative motion can be separated. Given the Hamiltonian of two interacting particles
 \eqar{
-  H=&\frac{1}{2m}\sum_{i;\alpha}p_{i\alpha}^2+\frac{m\omega^2}{2}\sum_{i;\alpha<d_\perp}x_{i\alpha}^2+V
+  H=&\frac{1}{2m}\sum_{i;\alpha}p_{i\alpha}^2+\frac{m\omega^2}{2}\sum_{i;\alpha<d_\perp}x_{i\alpha}^2+U
 }
-where $i=1,2$ is the index of particles, $\alpha$ is the index of dimensions, $d_\perp$ is the number of confined dimensions and $V=V\paren{\vec r_1, \vec r_2}$ is the interaction potential. If we define center-of-mass coordinates
+where $i=1,2$ is the index of particles, $\alpha$ is the index of dimensions, $d_\perp$ is the number of confined dimensions and $U=U\paren{\vec r_1, \vec r_2}$ is the interaction potential. If we define center-of-mass coordinates
 \eqar{
   X_\alpha=&\frac{x_{1\alpha}+x_{2\alpha}}{2}&P_\alpha=&p_{1\alpha}+p_{2\alpha}
 }
@@ -173,18 +175,36 @@ the new coordinates still satisfies the canonical commutation relation and the H
 \eqar{
   H=&H_{CM}+H_{rel}\\
   H_{CM}=&\frac{1}{4m}\sum_\alpha P_\alpha^2+m\omega^2\sum_\alpha X_\alpha^2\\
-  H_{rel}=&\frac{1}{m}\sum_\alpha p_\alpha^2+\frac{m\omega^2}{4}\sum_\alpha x_\alpha^2+V\paren{\vec r_{12}}
+  H_{rel}=&\frac{1}{m}\sum_\alpha p_\alpha^2+\frac{m\omega^2}{4}\sum_\alpha x_\alpha^2+U\paren{\vec r_{12}}
 }
 And the relative motion problem, therefore the collision problem, is reduced to a single partical problem.
 
+\subsection{Calculation of the $T$-matrix}
+Instead of the $k$ bases we used for the free-space problem, it is convinient to use the eigen-functions of the non-interacting Hamiltonian as our basis.
+\eqar{
+  \phi=&\prod_{\beta<d_\perp}\phi_n\paren{x_\beta}\prod_{\alpha\geqslant d_\perp}\ue^{\ui k_\alpha}
+}
+Since we assume only the lowest transverse vibrational state is populated, the quantity we need to calculate is
+\[T_{0,0}=\langle0|\hat T|0\rangle\]
+where $|0\rangle$ is the ground state of the non-interacting system. Using $\langle r|U|r'\rangle=U_0\delta\paren{r}\delta\paren{r'}$ we have
+\eqar{
+  T_{0,0}=&U_0+U_0T_0\langle0|\frac{1}{E-H_0+\ui0}|0\rangle\\
+  T_{0,0}^{-1}=&U_0^{-1}-\int_0^\infty\langle0|\ue^{\paren{E-H_0+\ui0}\tau}|0\rangle\ud\tau\\
+  =&U_0^{-1}\\
+  &-\int_0^\infty\ue^{\paren{E+\ui0}\tau}\paren{\frac{m\omega}{4\pi\sinh\omega\tau}}^{d_\perp/2}\paren{\frac{m}{4\pi\tau}}^{\paren{3-d_\perp}/2}\ud\tau
+}
+Instead of choosing a cut-off energy scale in order to calculate the integral we can compare this expression to the result without confinement. Since we know that in the free space $d_\perp=0$ and when $E=0$,
+\eqar{
+  \frac{m}{4\pi a}=&U_0^{-1}-\int_0^\infty\paren{\frac{m}{4\pi\tau}}^{3/2}\ud\tau
+}
+where $a$ is the three dimensional scattering length we replaced the $U_0$ that needs a cut-off with the integral above and the expression for the $T$-matrix is
+\eqar{
+  T_{0,0}^{-1}=&\frac{m}{4\pi a}\\
+  &+\int_{0}^{\infty}\lparen{\paren{\frac{m\omega}{4\pi\sinh\omega\tau}}^{d_\perp/2}\paren{\frac{m}{4\pi\tau}}^{\paren{3-d_\perp}/2}}\\
+  &\rparen{-\paren{\frac{m}{4\pi\tau}}^{3/2}}\ue^{\paren{E+\ui0}\tau}\ud\tau
+}
 
-% Cutoff
-
-% Compare to 3-d
-
-% Bound state
-
-% Scattering length
+\subsection{Bound state in one dimension}
 
 \section{Conclusion}
 
