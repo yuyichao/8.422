@@ -70,7 +70,7 @@
 
 \begin{document}
 \tikzstyle{every picture}+=[remember picture]
-\title{Confinement induced resonance}
+\title{Feshbach resonance in confined geometry}
 \author{Yichao Yu}
 \email{yuyichao@mit.edu}
 \homepage{http://yyc-arch.org/}
@@ -78,16 +78,17 @@
 \affiliation{Harvard Department of Physics}
 
 \begin{abstract}
-  We present a formal derivation of the confinement induced resonance for particles in a lower dimension. The generic $T$-matrix method is used to calculate the $S$-wave collisional property between two ultra-code atoms. We show the breakdown of a naive approach to describe such low dimensional system near a Feshbach resonance and preform a real three dimensional calculation to include additional effect from the confinement. The normalization of the high energy states in such cases are done by comparing to the result in free space.
+  We present a formal derivation of the Feshbach resonance for particles in a lower dimension. The generic $T$-matrix method is used to calculate the $S$-wave collisional property between two ultra-code atoms. We show the breakdown of a naive approach to describe such low dimensional system near a Feshbach resonance and preform a real three dimensional calculation to include additional effect from the confinement. The normalization of the high energy states in such cases are done by comparing to the result in free space.
 \end{abstract}
 
 \maketitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Introduction}
-In the field of ultra-cold atoms and molecules, the collisional properties between the particles play an important role for cooling into quantum degeneracy. The tunability of the scattering length using Feshbach resonance opens the door for engineering the interaction and using it as a source of correlation and entanglement in a many-body system.
+\section*{Introduction}
+In the field of ultra-cold atoms and molecules, the collisional properties between the particles play an important role, e.g. for cooling into quantum degeneracy. The strengh of this interaction, the scattering length, can be tuned in the experiment using Feshbach resonance, which appears as a divergence in the scattering length when the energy of a molecular bound state is tuned to match or closed to the energy of the free atom state. This easy tunability of the interaction between particles opens the door for engineering the interaction and using it as a source of correlation and entanglement in a many-body system. The bound state that appears on one side of the Feshbach resonance have also been used to create ultra-cold molecules from ultra-cold atoms.\\
 
-% Cite optical feshbach resonance
-% Feshbach resonance is a way to tune the interaction between two atoms. It appears as a divergence in the scattering length when the energy of a molecular bound state matches or is closed to the energy of the free atom state. The relative energy between the molecular and atomic is usually tuned using the magnetic field and the difference in Zeeman effect between the two states although optical dressing has also been used on excited metastable state.\\
+Another interesting topic for ultra-cold physics is lower dimensional systems. The dynamics in these systems have many features that are very different from the ones in three dimention. Such a system can be created in the experiment by loading ultra-cold atoms into a strong confinement such that only the lowest excited state in the trap can be populated. While the dynamics in a confined system is usually not sensitive to the higher excited states, this approximation breaks down in the present of the Feshbach resonance in which the interaction energy can be sufficiently large to populate those states.\\
+
+In this review, we will present a formal way to handle this problem. We will first study the generic $S$-wave scattering problem and derive the generic expression for the scattering length. In the second section, we will apply this method to the lower dimensional problem and use it to derive the energy of bound states with the present of external confinement in a one dimensional system.
 
 \section{Scattering theory}
 In this section, we will describe a formal way to calculate the properties of $S$-wave scattering between two atoms at low temperature.
